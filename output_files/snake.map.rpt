@@ -1,5 +1,5 @@
 Analysis & Synthesis report for snake
-Sat Mar 17 16:58:24 2018
+Sat Mar 17 18:45:28 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -42,7 +42,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 17 16:58:24 2018       ;
+; Analysis & Synthesis Status        ; Successful - Sat Mar 17 18:45:28 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; snake                                       ;
 ; Top-level Entity Name              ; snake                                       ;
@@ -258,7 +258,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Mar 17 16:58:13 2018
+    Info: Processing started: Sat Mar 17 18:45:16 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off snake -c snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -268,27 +268,29 @@ Info (12127): Elaborating entity "snake" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at snake.v(4): object "field" assigned a value but never read File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 4
 Warning (10036): Verilog HDL or VHDL warning at snake.v(7): object "bt0" assigned a value but never read File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 7
 Warning (10235): Verilog HDL Always Construct warning at snake.v(17): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 17
-Warning (10235): Verilog HDL Always Construct warning at snake.v(20): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 20
 Warning (10240): Verilog HDL Always Construct warning at snake.v(14): inferring latch(es) for variable "lastDirection", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 14
-Warning (10175): Verilog HDL warning at snake.v(30): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 30
-Warning (10175): Verilog HDL warning at snake.v(34): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 34
-Warning (10175): Verilog HDL warning at snake.v(36): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 36
-Warning (10235): Verilog HDL Always Construct warning at snake.v(43): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 43
+Warning (10175): Verilog HDL warning at snake.v(25): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 25
+Warning (10175): Verilog HDL warning at snake.v(29): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 29
+Warning (10175): Verilog HDL warning at snake.v(31): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 31
+Warning (10235): Verilog HDL Always Construct warning at snake.v(38): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 38
+Warning (10235): Verilog HDL Always Construct warning at snake.v(40): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 40
+Warning (10230): Verilog HDL assignment warning at snake.v(40): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 40
+Warning (10235): Verilog HDL Always Construct warning at snake.v(41): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 41
+Warning (10235): Verilog HDL Always Construct warning at snake.v(44): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 44
+Warning (10230): Verilog HDL assignment warning at snake.v(44): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 44
 Warning (10235): Verilog HDL Always Construct warning at snake.v(45): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 45
-Warning (10230): Verilog HDL assignment warning at snake.v(45): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 45
-Warning (10235): Verilog HDL Always Construct warning at snake.v(46): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 46
+Warning (10235): Verilog HDL Always Construct warning at snake.v(48): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 48
+Warning (10230): Verilog HDL assignment warning at snake.v(48): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 48
 Warning (10235): Verilog HDL Always Construct warning at snake.v(49): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 49
-Warning (10230): Verilog HDL assignment warning at snake.v(49): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 49
-Warning (10235): Verilog HDL Always Construct warning at snake.v(50): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 50
+Warning (10235): Verilog HDL Always Construct warning at snake.v(52): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 52
+Warning (10230): Verilog HDL assignment warning at snake.v(52): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 52
 Warning (10235): Verilog HDL Always Construct warning at snake.v(53): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 53
-Warning (10230): Verilog HDL assignment warning at snake.v(53): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 53
-Warning (10235): Verilog HDL Always Construct warning at snake.v(54): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 54
-Warning (10235): Verilog HDL Always Construct warning at snake.v(57): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 57
-Warning (10230): Verilog HDL assignment warning at snake.v(57): truncated value with size 32 to match size of target (8) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 57
-Warning (10235): Verilog HDL Always Construct warning at snake.v(58): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 58
-Warning (10240): Verilog HDL Always Construct warning at snake.v(41): inferring latch(es) for variable "posy", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 41
-Warning (10240): Verilog HDL Always Construct warning at snake.v(41): inferring latch(es) for variable "posx", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 41
-Warning (10855): Verilog HDL warning at snake.v(64): initial value for variable field should be constant File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 64
+Warning (10240): Verilog HDL Always Construct warning at snake.v(36): inferring latch(es) for variable "lastDirection", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 36
+Warning (10240): Verilog HDL Always Construct warning at snake.v(36): inferring latch(es) for variable "posx", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 36
+Warning (10240): Verilog HDL Always Construct warning at snake.v(36): inferring latch(es) for variable "posy", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 36
+Warning (10855): Verilog HDL warning at snake.v(59): initial value for variable field should be constant File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 59
+Warning (10855): Verilog HDL warning at snake.v(59): initial value for variable refresh should be constant File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 59
+Warning (10855): Verilog HDL warning at snake.v(59): initial value for variable stepForward should be constant File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 59
 Warning (10034): Output port "segA" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
 Warning (10034): Output port "segB" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
 Warning (10034): Output port "segC" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
@@ -297,12 +299,8 @@ Warning (10034): Output port "segE" at snake.v(2) has no driver File: /home/user
 Warning (10034): Output port "segF" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
 Warning (10034): Output port "segG" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
 Warning (10034): Output port "segDP" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Info (10041): Inferred latch for "lastDirection.011" at snake.v(14) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 14
-Info (10041): Inferred latch for "lastDirection.010" at snake.v(14) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 14
-Info (10041): Inferred latch for "lastDirection.001" at snake.v(14) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 14
-Info (10041): Inferred latch for "lastDirection.000" at snake.v(14) File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 14
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "field" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "arr" into its bus
+Warning (12158): Entity "snake" contains only dangling pins
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "segA" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
     Warning (13410): Pin "segB" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
@@ -317,10 +315,10 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 0 input pins
     Info (21059): Implemented 8 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 42 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 45 warnings
     Info: Peak virtual memory: 935 megabytes
-    Info: Processing ended: Sat Mar 17 16:58:24 2018
-    Info: Elapsed time: 00:00:11
+    Info: Processing ended: Sat Mar 17 18:45:28 2018
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:24
 
 

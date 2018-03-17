@@ -1,30 +1,24 @@
 module snake(segA, segB, segC, segD, segE, segF, segG, segDP);
 output segA, segB, segC, segD, segE, segF, segG, segDP;
 
-  reg [1:0] field [0:7] [0:7];		 //Game field
-  reg [7:0] posx;					 //Current X position of head
-  reg [7:0] posy;					 //Current Y position of head
-  reg [1:0] bt0 = 1'b0;		   		 //Button
-  reg [7:0] arr [0:7] [0:1];		 //Positions of all segments of snake
-  reg [1:0] refresh;				 //Refresh trigger
-  reg [2:0] lastDirection = 2'b01;  //Last direction of head of snake
-  reg [2:0] turn = 2'b00;
-  reg [1:0] stepForward = 1'b0;		 //Trigger for next frame move
+  reg field [0:7] [0:7];					//Game field
+  reg [7:0] posx;								//Current X position of head
+  reg [7:0] posy;								//Current Y position of head
+  reg [1:0] bt0 = 1'b0;						//Button
+  reg [7:0] arr [0:7] [0:1];				//Positions of all segments of snake
+  reg refresh = 1'b1;						//Refresh trigger
+  reg [2:0] lastDirection = 2'b01;		//Last direction of head of snake
+  reg [2:0] turn = 2'b00;					//Simulates turn button push
+  reg stepForward = 1'b0;		 			//Trigger for next frame move
   
-  always @(turn)
+  always @(turn)  // Simulates push on "turn" buttons
     begin
 		if (turn == 2'b01) begin
-			if (lastDirection == 2'b00) begin
-				lastDirection = 2'b01;
-			end
-			else if (lastDirection == 2'b01) begin
-              $display("kok");
-				lastDirection = 2'b10;
-			end
+          lastDirection = lastDirection + 1'b1;
 		end
 	 end
   
-  always @(refresh)
+  always @(refresh)  // Prints field - 7 segments simulation (for debug)
     begin
       integer i = 0;
       integer k = 0;
@@ -39,11 +33,11 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
       
     end
   
-  always @(stepForward)
+  always @(stepForward)  // Draw next frame - will be executed every X seconds (by CLK)
     begin
       case(lastDirection)
         2'b00: begin
-        posy = posy - 1;
+          posy = posy - 1;
 		  field[posy][posx] = 1'b0;
         end
 		  2'b01: begin
@@ -51,7 +45,6 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
 		  field[posy][posx] = 1'b0;
         end
           2'b10: begin
-            $display("kek");
           posy = posy + 1;
 		  field[posy][posx] = 1'b0;
         end
@@ -63,19 +56,26 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
       endcase
     end
   
-initial begin
+  initial begin  // Main Snake logic (Now it is here just for debug)
   #1 field[0][0] = 1'b0;
   posx = 1'd0;
   posy = 1'd0;
-  #1 refresh = 1'b1;
+  #1 refresh = ~refresh;
  
-  #1 stepForward = 1'b1;
-  #1 refresh = 1'b0;
+  #1 stepForward = ~stepForward;
+  #1 refresh = ~refresh;
  
   #1 turn = 2'b01;
+  #1 turn = 2'b00;
  
-  #1 stepForward = 1'b0;
-  #1 refresh = 1'b1;
+  #1 stepForward = ~stepForward;
+  #1 refresh = ~refresh;
+  
+  #1 turn = 2'b01;
+  #1 turn = 2'b00;
+ 
+  #1 stepForward = ~stepForward;
+  #1 refresh = ~refresh;
 end
 
 
