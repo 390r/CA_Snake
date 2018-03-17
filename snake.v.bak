@@ -1,0 +1,4 @@
+module test(output segA, segB, segC, segD, segE, segF, segG, segDP);
+
+assign {segA, segB, segC, segD, segE, segF, segG, segDP} = 8'b11111111;   // light the leds to display '2'
+endmodule
