@@ -7,33 +7,39 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
   reg [1:0] bt0 = 1'b0;		   		 //Button
   reg [7:0] arr [0:7] [0:1];		 //Positions of all segments of snake
   reg refresh = 1'b1;				 //Refresh trigger
-  reg [2:0] lastDirection = 2'b01;   //Last direction of head of snake
+  reg [1:0] lastDirection = 2'b01;   //Last direction of head of snake
   reg [2:0] turn = 2'b00;
-  reg stepForward = 1'b0;		 //Trigger for next frame move
+  reg stepForward;		 //Trigger for next frame move
   reg checkError = 1'b0;			//Trigger for checking is game is over
   
   always @(turn)  // Simulates push on "turn" buttons
     begin
 		if (turn == 2'b01) begin
+          if (posx%3 == 0 && lastDirection == 2'b00) begin
+            posx = posx + 8'd1;
+          end 
+          else if (posx%3 == 1 && lastDirection == 2'b10) begin
+            posx = posx - 8'd1;
+          end
           case(lastDirection)
             2'b01:begin
               posx = posx + 8'd1;
-              posy = posy + 9'd1;
+              posy = posy + 8'd1;
               field[posy][posx] = 1'b0;
             end
             2'b10:begin
               posx = posx - 8'd1;
-              posy = posy + 9'd1;
+              posy = posy + 8'd1;
               field[posy][posx] = 1'b0;
             end
             2'b00:begin
               posx = posx + 8'd1;
-              posy = posy - 9'd1;
+              posy = posy - 8'd1;
               field[posy][posx] = 1'b0;
             end
             2'b11:begin
               posx = posx - 8'd1;
-              posy = posy - 9'd1;
+              posy = posy - 8'd1;
               field[posy][posx] = 1'b0;
             end
           endcase
@@ -43,28 +49,31 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
       else if (turn == 2'b10) begin
         if (posx%3 == 0 && lastDirection == 2'b10) begin
             posx = posx + 8'd1;
+        end 
+        else if (posx%3 == 1 && lastDirection == 2'b00) begin
+          posx = posx - 8'd1;
         end
         
         case(lastDirection)
             2'b01:begin
               posx = posx + 8'd1;
-              posy = posy - 9'd1;
+              posy = posy - 8'd1;
               field[posy][posx] = 1'b0;
             end
             2'b10:begin
               posx = posx + 8'd1;
-              posy = posy + 9'd1;
+              posy = posy + 8'd1;
               field[posy][posx] = 1'b0;
               
             end
             2'b00:begin
               posx = posx - 8'd1;
-              posy = posy - 9'd1;
+              posy = posy - 8'd1;
               field[posy][posx] = 1'b0;
             end
             2'b11:begin
               posx = posx - 8'd1;
-              posy = posy + 9'd1;
+              posy = posy + 8'd1;
               field[posy][posx] = 1'b0;
             end
           endcase
@@ -81,7 +90,7 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
       for (k=1; k<=5; k = k+1) begin
         for (i=1; i<19; i = i+1) begin
           if ((i-1)%3 == 0)
-            $write("|");
+            $write("| ");
           $write(field[k][i], " ");
         end
           $write("\n");
@@ -98,20 +107,20 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
     begin
       case(lastDirection)
         2'b00: begin
-          posy = posy - 1;
-		  field[posy][posx] = 1'b0;
+          posy = posy + 8'd2;
+          field[posy][posx] = 1'd0;  
         end
-		  2'b01: begin
-		  posx = posx + 1;
-		  field[posy][posx] = 1'b0;
+        2'b01: begin
+		  posx = posx + 8'd3;
+          field[posy][posx] = 1'd0;  
         end
-          2'b10: begin
-          posy = posy + 1;
-		  field[posy][posx] = 1'b0;
+        2'b10: begin
+		  posy = posy + 8'd2;
+          field[posy][posx] = 1'd0;  
         end
-		  2'b11: begin
-		  posx = posx - 1;
-		  field[posy][posx] = 1'b0;
+		2'b11: begin
+		  posx = posx - 8'd3;
+          field[posy][posx] = 1'd0;  
         end
       default: lastDirection = 2'b01;
       endcase
@@ -122,19 +131,30 @@ output segA, segB, segC, segD, segE, segF, segG, segDP;
   #1 posx = 8'd2;
   #1 posy = 8'd1;
   #1 refresh = ~refresh;
- 
+    
+  #1 turn = 1'b1;
+  #1 turn = 1'b0;
+  #1 refresh = ~refresh;
+    
+  #1 turn = 1'b1;
+  #1 turn = 1'b0;
+  #1 refresh = ~refresh;
+    
+  #1 turn = 2'b10;
+  #1 turn = 1'b0;
+  #1 refresh = ~refresh;
+    
+  #1 turn = 2'b10;
+  #1 turn = 1'b0;
+  #1 refresh = ~refresh;
+    
+  #1 turn = 2'b10;
+  #1 turn = 1'b0;
+  #1 refresh = ~refresh;
+    
   #1 turn = 2'b01;
-  #1 turn = 2'b00;
+  #1 turn = 1'b0;
   #1 refresh = ~refresh;
-    
-  #1 turn = 2'b10;
-  #1 turn = 2'b00;
-  #1 refresh = ~refresh;
-    
-  #1 turn = 2'b10;
-  #1 turn = 2'b00;
-  #1 refresh = ~refresh;
-    
 
 end
 
