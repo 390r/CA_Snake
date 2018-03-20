@@ -1,5 +1,5 @@
 Analysis & Synthesis report for snake
-Sat Mar 17 21:28:00 2018
+Tue Mar 20 23:02:43 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,9 +14,13 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |snake
+ 12. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -42,16 +46,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 17 21:28:00 2018       ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 20 23:02:43 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; snake                                       ;
 ; Top-level Entity Name              ; snake                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 8                                           ;
+; Total logic elements               ; 1,094                                       ;
+;     Total combinational functions  ; 1,094                                       ;
+;     Dedicated logic registers      ; 192                                         ;
+; Total registers                    ; 192                                         ;
+; Total pins                         ; 51                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -156,60 +160,77 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                            ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path              ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
-; snake.v                          ; yes             ; User Verilog HDL File  ; /home/user/CA_Projects/Snake_v0.1/snake.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; snake.v                          ; yes             ; User Verilog HDL File        ; /home/user/CA_Projects/Snake_v0.1/snake.v                                          ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; /home/user/intelFPGA_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc      ;         ;
+; db/lpm_divide_akl.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/user/CA_Projects/Snake_v0.1/db/lpm_divide_akl.tdf                            ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/user/CA_Projects/Snake_v0.1/db/sign_div_unsign_9kh.tdf                       ;         ;
+; db/alt_u_div_see.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/user/CA_Projects/Snake_v0.1/db/alt_u_div_see.tdf                             ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/user/CA_Projects/Snake_v0.1/db/add_sub_t3c.tdf                               ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/user/CA_Projects/Snake_v0.1/db/add_sub_u3c.tdf                               ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-;                                             ;             ;
-; Total combinational functions               ; 0           ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 0           ;
-;     -- 3 input functions                    ; 0           ;
-;     -- <=2 input functions                  ; 0           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 0           ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 0           ;
-;     -- Dedicated logic registers            ; 0           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 8           ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; segA~output ;
-; Maximum fan-out                             ; 1           ;
-; Total fan-out                               ; 8           ;
-; Average fan-out                             ; 0.50        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,094 ;
+;                                             ;       ;
+; Total combinational functions               ; 1094  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 620   ;
+;     -- 3 input functions                    ; 387   ;
+;     -- <=2 input functions                  ; 87    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 998   ;
+;     -- arithmetic mode                      ; 96    ;
+;                                             ;       ;
+; Total registers                             ; 192   ;
+;     -- Dedicated logic registers            ; 192   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 51    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; temp  ;
+; Maximum fan-out                             ; 167   ;
+; Total fan-out                               ; 4304  ;
+; Average fan-out                             ; 3.10  ;
++---------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |snake                     ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 8    ; 0            ; 0          ; |snake              ; snake       ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                       ;
++----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                    ; Entity Name         ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |snake                                 ; 1094 (1046)         ; 192 (192)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |snake                                                                                                 ; snake               ; work         ;
+;    |lpm_divide:Mod0|                   ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_akl:auto_generated|  ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_akl:auto_generated                                                   ; lpm_divide_akl      ; work         ;
+;          |sign_div_unsign_9kh:divider| ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;             |alt_u_div_see:divider|    ; 48 (48)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_see:divider ; alt_u_div_see       ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -218,14 +239,171 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 192   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 14    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 2     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; field[1][2]                               ; 5       ;
+; field[2][3]                               ; 5       ;
+; field[4][3]                               ; 5       ;
+; field[5][2]                               ; 5       ;
+; field[4][1]                               ; 5       ;
+; field[2][1]                               ; 5       ;
+; field[3][2]                               ; 5       ;
+; field[1][5]                               ; 5       ;
+; field[2][6]                               ; 5       ;
+; field[4][6]                               ; 5       ;
+; field[5][5]                               ; 5       ;
+; field[4][4]                               ; 5       ;
+; field[2][4]                               ; 5       ;
+; field[3][5]                               ; 5       ;
+; field[1][8]                               ; 5       ;
+; field[2][9]                               ; 5       ;
+; field[4][9]                               ; 5       ;
+; field[5][8]                               ; 5       ;
+; field[4][7]                               ; 5       ;
+; field[2][7]                               ; 5       ;
+; field[3][8]                               ; 5       ;
+; field[1][11]                              ; 5       ;
+; field[2][12]                              ; 5       ;
+; field[4][12]                              ; 5       ;
+; field[5][11]                              ; 5       ;
+; field[4][10]                              ; 5       ;
+; field[2][10]                              ; 5       ;
+; field[3][11]                              ; 5       ;
+; field[1][14]                              ; 5       ;
+; field[2][15]                              ; 5       ;
+; field[4][15]                              ; 5       ;
+; field[5][14]                              ; 5       ;
+; field[4][13]                              ; 5       ;
+; field[2][13]                              ; 5       ;
+; field[3][14]                              ; 5       ;
+; field[1][17]                              ; 5       ;
+; field[2][18]                              ; 5       ;
+; field[4][18]                              ; 5       ;
+; field[5][17]                              ; 5       ;
+; field[4][16]                              ; 5       ;
+; field[2][16]                              ; 5       ;
+; field[3][17]                              ; 5       ;
+; lastDirection[1]                          ; 52      ;
+; posx[1]                                   ; 9       ;
+; posx[0]                                   ; 8       ;
+; field[4][17]                              ; 4       ;
+; field[4][19]                              ; 4       ;
+; field[5][18]                              ; 4       ;
+; field[5][16]                              ; 4       ;
+; field[5][19]                              ; 4       ;
+; field[6][17]                              ; 4       ;
+; field[6][18]                              ; 4       ;
+; field[6][16]                              ; 4       ;
+; field[6][19]                              ; 4       ;
+; field[5][20]                              ; 4       ;
+; field[4][20]                              ; 4       ;
+; field[6][20]                              ; 4       ;
+; field[6][10]                              ; 4       ;
+; field[6][6]                               ; 4       ;
+; field[6][2]                               ; 4       ;
+; field[6][14]                              ; 4       ;
+; field[6][9]                               ; 4       ;
+; field[6][1]                               ; 4       ;
+; field[6][13]                              ; 4       ;
+; field[6][5]                               ; 4       ;
+; field[6][8]                               ; 4       ;
+; field[6][4]                               ; 4       ;
+; field[6][0]                               ; 4       ;
+; field[6][12]                              ; 4       ;
+; field[6][7]                               ; 4       ;
+; field[6][11]                              ; 4       ;
+; field[6][3]                               ; 4       ;
+; field[6][15]                              ; 4       ;
+; field[4][2]                               ; 4       ;
+; field[4][11]                              ; 4       ;
+; field[4][5]                               ; 4       ;
+; field[4][8]                               ; 4       ;
+; field[4][0]                               ; 4       ;
+; field[4][14]                              ; 4       ;
+; field[5][12]                              ; 4       ;
+; field[5][9]                               ; 4       ;
+; field[5][13]                              ; 4       ;
+; field[5][6]                               ; 4       ;
+; field[5][3]                               ; 4       ;
+; field[5][7]                               ; 4       ;
+; field[5][4]                               ; 4       ;
+; field[5][1]                               ; 4       ;
+; field[5][0]                               ; 4       ;
+; field[5][10]                              ; 4       ;
+; field[5][15]                              ; 4       ;
+; field[2][2]                               ; 4       ;
+; field[2][8]                               ; 4       ;
+; field[2][0]                               ; 4       ;
+; field[2][5]                               ; 4       ;
+; field[2][14]                              ; 4       ;
+; field[2][11]                              ; 4       ;
+; field[2][17]                              ; 4       ;
+; field[2][19]                              ; 4       ;
+; field[2][20]                              ; 4       ;
+; field[1][10]                              ; 4       ;
+; Total number of inverted registers = 150* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |snake|posy[4]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |snake|posx[0]             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |snake|Mux10               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |snake|posx                ;
+; 3:1                ; 147 bits  ; 294 LEs       ; 294 LEs              ; 0 LEs                  ; No         ; |snake|field               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |snake|posx                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |snake ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; N              ; 25    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 2              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_akl ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -233,13 +411,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 8                           ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; boundary_port         ; 51                          ;
+; cycloneiii_ff         ; 192                         ;
+;     ENA               ; 2                           ;
+;     SLD               ; 14                          ;
+;     plain             ; 176                         ;
+; cycloneiii_lcell_comb ; 1137                        ;
+;     arith             ; 96                          ;
+;         2 data inputs ; 48                          ;
+;         3 data inputs ; 48                          ;
+;     normal            ; 1041                        ;
+;         0 data inputs ; 7                           ;
+;         1 data inputs ; 48                          ;
+;         2 data inputs ; 27                          ;
+;         3 data inputs ; 339                         ;
+;         4 data inputs ; 620                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 28.20                       ;
+; Average LUT depth     ; 17.25                       ;
 +-----------------------+-----------------------------+
 
 
@@ -248,7 +437,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -258,88 +447,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Mar 17 21:27:49 2018
+    Info: Processing started: Tue Mar 20 23:02:28 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off snake -c snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file snake.v
     Info (12023): Found entity 1: snake File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 1
 Info (12127): Elaborating entity "snake" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at snake.v(4): object "field" assigned a value but never read File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 4
-Warning (10036): Verilog HDL or VHDL warning at snake.v(7): object "bt0" assigned a value but never read File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 7
-Warning (10858): Verilog HDL warning at snake.v(12): object stepForward used but never assigned File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 12
-Warning (10235): Verilog HDL Always Construct warning at snake.v(18): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 18
-Warning (10235): Verilog HDL Always Construct warning at snake.v(18): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 18
-Warning (10235): Verilog HDL Always Construct warning at snake.v(19): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 19
-Warning (10235): Verilog HDL Always Construct warning at snake.v(21): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 21
-Warning (10235): Verilog HDL Always Construct warning at snake.v(21): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 21
-Warning (10235): Verilog HDL Always Construct warning at snake.v(22): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 22
-Warning (10235): Verilog HDL Always Construct warning at snake.v(24): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 24
-Warning (10235): Verilog HDL Always Construct warning at snake.v(27): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 27
-Warning (10235): Verilog HDL Always Construct warning at snake.v(32): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 32
-Warning (10235): Verilog HDL Always Construct warning at snake.v(37): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 37
-Warning (10235): Verilog HDL Always Construct warning at snake.v(42): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 42
-Warning (10235): Verilog HDL Always Construct warning at snake.v(46): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 46
-Warning (10235): Verilog HDL Always Construct warning at snake.v(50): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 50
-Warning (10235): Verilog HDL Always Construct warning at snake.v(50): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 50
-Warning (10235): Verilog HDL Always Construct warning at snake.v(51): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 51
-Warning (10235): Verilog HDL Always Construct warning at snake.v(53): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 53
-Warning (10235): Verilog HDL Always Construct warning at snake.v(53): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 53
-Warning (10235): Verilog HDL Always Construct warning at snake.v(54): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 54
-Warning (10235): Verilog HDL Always Construct warning at snake.v(57): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 57
-Warning (10235): Verilog HDL Always Construct warning at snake.v(60): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 60
-Warning (10235): Verilog HDL Always Construct warning at snake.v(65): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 65
-Warning (10235): Verilog HDL Always Construct warning at snake.v(71): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 71
-Warning (10235): Verilog HDL Always Construct warning at snake.v(76): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 76
-Warning (10235): Verilog HDL Always Construct warning at snake.v(80): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 80
-Warning (10240): Verilog HDL Always Construct warning at snake.v(15): inferring latch(es) for variable "posx", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 15
-Warning (10240): Verilog HDL Always Construct warning at snake.v(15): inferring latch(es) for variable "posy", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 15
-Warning (10240): Verilog HDL Always Construct warning at snake.v(15): inferring latch(es) for variable "lastDirection", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 15
-Warning (10175): Verilog HDL warning at snake.v(88): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 88
-Warning (10175): Verilog HDL warning at snake.v(93): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 93
-Warning (10175): Verilog HDL warning at snake.v(94): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 94
-Warning (10175): Verilog HDL warning at snake.v(96): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 96
-Warning (10235): Verilog HDL Always Construct warning at snake.v(108): variable "lastDirection" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 108
-Warning (10235): Verilog HDL Always Construct warning at snake.v(110): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 110
-Warning (10235): Verilog HDL Always Construct warning at snake.v(111): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 111
-Warning (10235): Verilog HDL Always Construct warning at snake.v(114): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 114
-Warning (10235): Verilog HDL Always Construct warning at snake.v(115): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 115
-Warning (10235): Verilog HDL Always Construct warning at snake.v(118): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 118
-Warning (10235): Verilog HDL Always Construct warning at snake.v(119): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 119
-Warning (10235): Verilog HDL Always Construct warning at snake.v(122): variable "posx" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 122
-Warning (10235): Verilog HDL Always Construct warning at snake.v(123): variable "posy" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 123
-Warning (10240): Verilog HDL Always Construct warning at snake.v(106): inferring latch(es) for variable "posx", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 106
-Warning (10240): Verilog HDL Always Construct warning at snake.v(106): inferring latch(es) for variable "posy", which holds its previous value in one or more paths through the always construct File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 106
-Warning (10855): Verilog HDL warning at snake.v(129): initial value for variable field should be constant File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 129
-Warning (10855): Verilog HDL warning at snake.v(129): initial value for variable refresh should be constant File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 129
-Warning (10034): Output port "segA" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segB" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segC" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segD" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segE" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segF" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segG" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-Warning (10034): Output port "segDP" at snake.v(2) has no driver File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
+Warning (10036): Verilog HDL or VHDL warning at snake.v(26): object "countsec" assigned a value but never read File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 26
+Warning (10175): Verilog HDL warning at snake.v(38): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 38
+Warning (10175): Verilog HDL warning at snake.v(43): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 43
+Warning (10175): Verilog HDL warning at snake.v(44): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 44
+Warning (10175): Verilog HDL warning at snake.v(46): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 46
+Warning (10175): Verilog HDL warning at snake.v(167): ignoring unsupported system task File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 167
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "arr" into its bus
-Warning (12158): Entity "snake" contains only dangling pins
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 96
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 96
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 96
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "2"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_akl.tdf
+    Info (12023): Found entity 1: lpm_divide_akl File: /home/user/CA_Projects/Snake_v0.1/db/lpm_divide_akl.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: /home/user/CA_Projects/Snake_v0.1/db/sign_div_unsign_9kh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_see.tdf
+    Info (12023): Found entity 1: alt_u_div_see File: /home/user/CA_Projects/Snake_v0.1/db/alt_u_div_see.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: /home/user/CA_Projects/Snake_v0.1/db/add_sub_t3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: /home/user/CA_Projects/Snake_v0.1/db/add_sub_u3c.tdf Line: 22
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "segA" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segB" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segC" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segD" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segE" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segF" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segG" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
-    Warning (13410): Pin "segDP" is stuck at GND File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
+    Warning (13410): Pin "seg1DP" is stuck at VCC File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 1
+    Warning (13410): Pin "seg2DP" is stuck at VCC File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 2
+    Warning (13410): Pin "seg3DP" is stuck at VCC File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 3
+    Warning (13410): Pin "seg4DP" is stuck at VCC File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 4
+    Warning (13410): Pin "seg5DP" is stuck at VCC File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 5
+    Warning (13410): Pin "seg6DP" is stuck at VCC File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 6
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 0 input pins
-    Info (21059): Implemented 8 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 66 warnings
-    Info: Peak virtual memory: 937 megabytes
-    Info: Processing ended: Sat Mar 17 21:28:00 2018
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:23
+Info (21057): Implemented 1146 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 1095 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 1010 megabytes
+    Info: Processing ended: Tue Mar 20 23:02:43 2018
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:26
 
 

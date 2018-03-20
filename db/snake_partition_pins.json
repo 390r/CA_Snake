@@ -2,7 +2,188 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "seg1A",
+					"strict" : false
+				},
+				{
+					"name" : "seg1B",
+					"strict" : false
+				},
+				{
+					"name" : "seg1C",
+					"strict" : false
+				},
+				{
+					"name" : "seg1D",
+					"strict" : false
+				},
+				{
+					"name" : "seg1E",
+					"strict" : false
+				},
+				{
+					"name" : "seg1F",
+					"strict" : false
+				},
+				{
+					"name" : "seg1G",
+					"strict" : false
+				},
+				{
+					"name" : "seg2A",
+					"strict" : false
+				},
+				{
+					"name" : "seg2B",
+					"strict" : false
+				},
+				{
+					"name" : "seg2C",
+					"strict" : false
+				},
+				{
+					"name" : "seg2D",
+					"strict" : false
+				},
+				{
+					"name" : "seg2E",
+					"strict" : false
+				},
+				{
+					"name" : "seg2F",
+					"strict" : false
+				},
+				{
+					"name" : "seg2G",
+					"strict" : false
+				},
+				{
+					"name" : "seg3A",
+					"strict" : false
+				},
+				{
+					"name" : "seg3B",
+					"strict" : false
+				},
+				{
+					"name" : "seg3C",
+					"strict" : false
+				},
+				{
+					"name" : "seg3D",
+					"strict" : false
+				},
+				{
+					"name" : "seg3E",
+					"strict" : false
+				},
+				{
+					"name" : "seg3F",
+					"strict" : false
+				},
+				{
+					"name" : "seg3G",
+					"strict" : false
+				},
+				{
+					"name" : "seg4A",
+					"strict" : false
+				},
+				{
+					"name" : "seg4B",
+					"strict" : false
+				},
+				{
+					"name" : "seg4C",
+					"strict" : false
+				},
+				{
+					"name" : "seg4D",
+					"strict" : false
+				},
+				{
+					"name" : "seg4E",
+					"strict" : false
+				},
+				{
+					"name" : "seg4F",
+					"strict" : false
+				},
+				{
+					"name" : "seg4G",
+					"strict" : false
+				},
+				{
+					"name" : "seg5A",
+					"strict" : false
+				},
+				{
+					"name" : "seg5B",
+					"strict" : false
+				},
+				{
+					"name" : "seg5C",
+					"strict" : false
+				},
+				{
+					"name" : "seg5D",
+					"strict" : false
+				},
+				{
+					"name" : "seg5E",
+					"strict" : false
+				},
+				{
+					"name" : "seg5F",
+					"strict" : false
+				},
+				{
+					"name" : "seg5G",
+					"strict" : false
+				},
+				{
+					"name" : "seg6A",
+					"strict" : false
+				},
+				{
+					"name" : "seg6B",
+					"strict" : false
+				},
+				{
+					"name" : "seg6C",
+					"strict" : false
+				},
+				{
+					"name" : "seg6D",
+					"strict" : false
+				},
+				{
+					"name" : "seg6E",
+					"strict" : false
+				},
+				{
+					"name" : "seg6F",
+					"strict" : false
+				},
+				{
+					"name" : "seg6G",
+					"strict" : false
+				},
+				{
+					"name" : "bt0",
+					"strict" : false
+				},
+				{
+					"name" : "bt1",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

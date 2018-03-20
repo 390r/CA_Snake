@@ -16,7 +16,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
-// DATE "03/17/2018 21:28:15"
+// DATE "03/20/2018 14:13:25"
 
 // 
 // Device: Altera 10M50DAF484C7G Package FBGA484
@@ -106,7 +106,7 @@ defparam \~QUARTUS_CREATED_GND~I .sum_lutc_input = "datac";
 
 // Location: IOOBUF_X58_Y54_N16
 fiftyfivenm_io_obuf \segA~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -132,7 +132,7 @@ defparam \segB~output .open_drain_output = "false";
 
 // Location: IOOBUF_X60_Y54_N2
 fiftyfivenm_io_obuf \segC~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -158,7 +158,7 @@ defparam \segD~output .open_drain_output = "false";
 
 // Location: IOOBUF_X74_Y54_N2
 fiftyfivenm_io_obuf \segE~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -184,7 +184,7 @@ defparam \segF~output .open_drain_output = "false";
 
 // Location: IOOBUF_X74_Y54_N23
 fiftyfivenm_io_obuf \segG~output (
-	.i(gnd),
+	.i(vcc),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
