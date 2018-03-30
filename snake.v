@@ -1,200 +1,241 @@
-module snake(input clk, bt0, bt1,output seg1A, seg1B, seg1C, seg1D, seg1E, seg1F, seg1G, seg1DP, 
-													 seg2A, seg2B, seg2C, seg2D, seg2E, seg2F, seg2G, seg2DP,
-													 seg3A, seg3B, seg3C, seg3D, seg3E, seg3F, seg3G, seg3DP,
-													 seg4A, seg4B, seg4C, seg4D, seg4E, seg4F, seg4G, seg4DP,
-													 seg5A, seg5B, seg5C, seg5D, seg5E, seg5F, seg5G, seg5DP,
-													 seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP);
+module snake(input btL, btR, clk, sw1, speedSw, output seg1A, seg1B, seg1C, seg1D, seg1E, seg1F, seg1G, seg1DP,
+															  seg2A, seg2B, seg2C, seg2D, seg2E, seg2F, seg2G, seg2DP,
+															  seg3A, seg3B, seg3C, seg3D, seg3E, seg3F, seg3G, seg3DP,
+															  seg4A, seg4B, seg4C, seg4D, seg4E, seg4F, seg4G, seg4DP,
+															  seg5A, seg5B, seg5C, seg5D, seg5E, seg5F, seg5G, seg5DP,
+															  seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP);
 
-  reg field [0:6] [0:20];   //Game field
-  reg [0:7] showField1 = 8'b11111111;	reg [0:7] showField2 = 8'b11111111;	reg [0:7] showField3 = 8'b11111111;
-  reg [0:7] showField4 = 8'b11111111;	reg [0:7] showField5 = 8'b11111111;	reg [0:7] showField6 = 8'b11111111;
-  reg [7:0] posx;      //Current X position of head
-  reg [7:0] posy;      //Current Y position of head
-  reg [7:0] arr [0:7] [0:1];   //Positions of all segments of snake
-  reg refresh = 1'b1;     //Refresh trigger
-  reg [1:0] lastDirection = 2'b10;   //Last direction of head of snake
-  reg turnleft = 1'b0;
-  reg turnright = 1'b0;
-  reg prevRight;
-  reg reset;
-  reg stepForward;   //Trigger for next frame move
-  reg gameOver = 1'b0;   //Trigger for checking is game is over
-  reg temp = 1'b0;
+reg field [0:6] [0:20];   //Game field
+reg [0:7] showField1 = 8'b11111101;	reg [0:7] showField2 = 8'b11110111;	reg [0:7] showField3 = 8'b11011111;
+reg [0:7] showField4 = 8'b11111011;	reg [0:7] showField5 = 8'b11101111;	reg [0:7] showField6 = 8'b10111111;
+
+reg turnleft = 1'b0;
+reg turnright = 1'b0;
+reg [1:0] lastDirection = 2'b01;
+reg gameOver = 1'b0;
+reg [1:0]speed = 1'b1;
+reg applePicked = 1'b0;
+reg appleDot[5:0];
+
+
+reg drawFrame = 1'b0;
+reg refresh = 1'b0;
+reg reset = 1'b1;
+
+parameter N = 25;
+reg [N-1:0] slow_clk = 0;
+
+integer snakePos[0:10][0:1];
+integer headPointer = 1;
+integer tailPointer = 0;
+integer prevX;
+integer prevY;
+integer lastX;
+integer lastY;
+
+ assign {seg1A, seg1B, seg1C, seg1D, seg1E, seg1F, seg1G, seg1DP} = showField1;
+ assign {seg2A, seg2B, seg2C, seg2D, seg2E, seg2F, seg2G, seg2DP} = showField2;
+ assign {seg3A, seg3B, seg3C, seg3D, seg3E, seg3F, seg3G, seg3DP} = showField3;
+ assign {seg4A, seg4B, seg4C, seg4D, seg4E, seg4F, seg4G, seg4DP} = showField4;
+ assign {seg5A, seg5B, seg5C, seg5D, seg5E, seg5F, seg5G, seg5DP} = showField5;
+ assign {seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP} = showField6;
+
+ always @ (posedge clk)
+	slow_clk <= slow_clk + speed;
+	
+ always @ (posedge slow_clk[N-1])
+   drawFrame = ~drawFrame;
+
   
-  parameter N = 25;
-  reg [N-1:0] slow_clk = 0;
-  reg [7:0] countsec = 0;
+ always @ (refresh) begin
+	integer i = 0;
+	integer j = 0;
+	if (gameOver) begin
+		for (i = 0; i<7; i = i+1)
+		  for (j = 0; j<21; j = j+1)
+			  field[i][j] = 1'b0;
+	end else begin
+		for (i = 0; i<7; i = i+1)
+			for (j = 0; j<21; j = j+1)
+				field[i][j] = 1'b1;
 
-  always @ (posedge clk)
-  slow_clk <= slow_clk + 1'b1;
-
-  always @ (posedge slow_clk[N-1])
-    temp <= ~temp;
+		if (headPointer>tailPointer)begin
+			for (i=0; i<=10; i= i+1)
+				if (i<=headPointer & i>=tailPointer)
+					field[snakePos[i][0]][snakePos[i][1]] = 1'b0;
+		end else begin
+			for (i=0; i<=10; i= i+1)
+				if (i>=tailPointer)
+					field[snakePos[i][0]][snakePos[i][1]] = 1'b0;
+					
+			for (i=0; i<=10; i= i+1)
+				if (i<=headPointer)
+					field[snakePos[i][0]][snakePos[i][1]] = 1'b0;
+		end
+	end
+	showField1 = {field[1][ 2], field[2][ 3], field[4][ 3], field[5] [2], field[4][ 1], field[2][ 1], field[3][ 2], appleDot[0]};
+	showField2 = {field[1][ 5], field[2][ 6], field[4][ 6], field[5] [5], field[4][ 4], field[2][ 4], field[3][ 5], appleDot[1]};
+	showField3 = {field[1][ 8], field[2][ 9], field[4][ 9], field[5] [8], field[4][ 7], field[2][ 7], field[3][ 8], appleDot[2]};
+	showField4 = {field[1][11], field[2][12], field[4][12], field[5][11], field[4][10], field[2][10], field[3][11], appleDot[3]};
+	showField5 = {field[1][14], field[2][15], field[4][15], field[5][14], field[4][13], field[2][13], field[3][14], appleDot[4]};
+	showField6 = {field[1][17], field[2][18], field[4][18], field[5][17], field[4][16], field[2][16], field[3][17], appleDot[5]};
+ end
+   
+	 
+ always @ (posedge drawFrame) begin
+ integer i=0;
+	if (applePicked == 1'b1) begin
+		for (i = 0; i<6; i = i+1)
+			appleDot[i] = 1'b1;
+		appleDot[5] = 1'b0;
+		applePicked = 1'b0;
+	end
   
- always @(refresh)  // Prints field - 7 segments simulation (for debug)
-    begin
-      integer i = 0;
-      integer k = 0;
-      $write("\n");
-      
-      for (k=1; k<=5; k = k+1) begin
-        for (i=1; i<19; i = i+1) begin
-          if ((i-1)%3 == 0)
-            $write("| ");
-          $write(field[k][i], " ");
+  if (sw1 == 1'b0) begin
+	snakePos[0][0] = 1;
+	snakePos[0][1] = 2;
+	
+   snakePos[1][0] = 1;
+	snakePos[1][1] = 5;
+	
+	snakePos[2][0] = 1;
+
+	snakePos[2][1] = 8;
+	
+	for (i = 0; i<6; i = i+1)
+		appleDot[i] = 1'b1;
+		
+	appleDot[2] = 1'b0;
+	
+	headPointer = 2;
+   tailPointer = 0;
+	lastDirection = 2'b01;
+	gameOver = 1'b0;
+	refresh = ~refresh;
+  end 
+  else if (gameOver == 1'b1)
+	  refresh = ~refresh;
+  else begin
+	prevY = snakePos[headPointer][0];
+   prevX = snakePos[headPointer][1];
+	lastY = snakePos[tailPointer][0];
+	lastX = snakePos[tailPointer][1];
+	
+	if (headPointer == 10) headPointer = 0;
+	else headPointer = headPointer + 1;
+	
+	if (tailPointer == 10) tailPointer = 0;
+	else tailPointer = tailPointer + 1;
+    
+	if (turnright == 1'b1) begin
+      if (prevX%3 == 0 && lastDirection == 2'b00)
+        prevX = prevX + 1'd1;
+      else if(prevX%3 == 1 && lastDirection == 2'b10)
+        prevX = prevX - 1'd1;
+      case(lastDirection)
+        2'b01:begin
+          prevX = prevX + 1'd1;
+          prevY = prevY + 1'd1;
         end
-          $write("\n");
-      end
-   showField1 = {field[1][2], field[2][3], field[4][3], field[5][2], field[4][1], field[2][1], field[3][2], 1'b1};
-	showField2 = {field[1][5], field[2][6], field[4][6], field[5][5], field[4][4], field[2][4], field[3][5], 1'b1};
-	showField3 = {field[1][8], field[2][9], field[4][9], field[5][8], field[4][7], field[2][7], field[3][8], 1'b1};
-	showField4 = {field[1][11], field[2][12], field[4][12], field[5][11], field[4][10], field[2][10], field[3][11], 1'b1};
-	showField5 = {field[1][14], field[2][15], field[4][15], field[5][14], field[4][13], field[2][13], field[3][14], 1'b1};
-	showField6 = {field[1][17], field[2][18], field[4][18], field[5][17], field[4][16], field[2][16], field[3][17], 1'b1};
-      
-    end
-  
-  always @(posedge temp)  // Draw next frame - will be executed every X seconds (by CLK)
-    begin
-	 if (turnright) begin
-          if (posx%3 == 0 && lastDirection == 2'b00) begin
-            posx = posx + 8'd1;
-          end 
-          else if (posx%3 == 1 && lastDirection == 2'b10) begin
-            posx = posx - 8'd1;
-          end
-          case(lastDirection)
-            2'b01:begin
-              posx = posx + 8'd1;
-              posy = posy + 8'd1;
-            end
-            2'b10:begin
-              posx = posx - 8'd1;
-              posy = posy + 8'd1;
-            end
-            2'b00:begin
-              posx = posx + 8'd1;
-              posy = posy - 8'd1;
-            end
-            2'b11:begin
-              posx = posx - 8'd1;
-              posy = posy - 8'd1;
-              
-            end
-          endcase
-			 
-			 if (field[posy][posx] == 1'b0)
-				gameOver = 1'b1;
-			 field[posy][posx] = 1'b0;
-			 
-			 lastDirection = lastDirection + 2'b01;
-			 
-		  end else if (turnleft) begin
-		  if (posx%3 == 0 && lastDirection == 2'b10) begin
-            posx = posx + 8'd1;
+        2'b10:begin
+          prevX = prevX - 1'd1;
+          prevY = prevY + 1'd1;
+        end
+        2'b00:begin
+          prevX = prevX + 1'd1;
+          prevY = prevY - 1'd1;
+        end
+        2'b11:begin
+          prevX = prevX - 1'd1;
+          prevY = prevY - 1'd1;
+        end
+      endcase
+		if (field[prevY][prevX] == 1'b0)
+			gameOver = 1'b1;
+      lastDirection = lastDirection + 2'b01;
+	end else
+	if (turnleft == 1'b1) begin
+      if (prevX%3 == 0 && lastDirection == 2'b10) begin
+            prevX = prevX + 1'd1;
         end 
-        else if (posx%3 == 1 && lastDirection == 2'b00) begin
-          posx = posx - 8'd1;
+        else if (prevX%3 == 1 && lastDirection == 2'b00) begin
+          prevX = prevX - 1'd1;
         end
         
         case(lastDirection)
             2'b01:begin
-              posx = posx + 8'd1;
-              posy = posy - 8'd1;
+				  prevX = prevX + 1'd1;
+              prevY = prevY - 1'd1;
             end
             2'b10:begin
-              posx = posx + 8'd1;
-              posy = posy + 8'd1;
+              prevX = prevX + 1'd1;
+              prevY = prevY + 1'd1;
               
             end
             2'b00:begin
-              posx = posx - 8'd1;
-              posy = posy - 8'd1;
+              prevX = prevX - 1'd1;
+              prevY = prevY - 1'd1;
             end
             2'b11:begin
-              posx = posx - 8'd1;
-              posy = posy + 8'd1;
+              prevX = prevX - 1'd1;
+              prevY = prevY + 1'd1;
             end
           endcase
-			 
-			 if (field[posy][posx] == 1'b0)
-				gameOver = 1'b1;
-				
-			 field[posy][posx] = 1'b0;
-			 lastDirection = lastDirection - 2'b01;
-      end
-      else begin
-		case(lastDirection)
-        2'b00: begin
-          posy = posy - 8'd2;
-        end
-        2'b01: begin
-          posx = posx + 8'd3;
-        end
-        2'b10: begin
-          posy = posy + 8'd2;  
-        end
-        2'b11: begin
-          posx = posx - 8'd3;  
-        end
-      default: lastDirection = 2'b01;
-      endcase
-		
-		if (field[posy][posx] == 1'b0)
-			gameOver = 1'b1;
-			
-		field[posy][posx] = 1'd0;  
-		
+    
+    if (field[prevY][prevX] == 1'b0)
+		gameOver = 1'b1;
+
+    lastDirection = lastDirection - 2'b01;
+	end else 
+	begin
+      case (lastDirection)
+        2'b01: prevX = prevX + 2'd3;
+        2'b11: prevX = prevX - 2'd3;
+        2'b00: prevY = prevY - 2'd2;
+        2'b10: prevY = prevY + 2'd2;
+		 endcase
+	end
+	if (prevY == 5)
+		if ((prevX == 8 && lastDirection == 2'b01) || (prevX == 11 && lastDirection == 2'b11)) begin
+			applePicked = 1'b1;
+			tailPointer = tailPointer - 1;
 		end
 		
-	if (gameOver == 1'b1) begin
+    snakePos[headPointer][0] = prevY;
+    snakePos[headPointer][1] = prevX;
+    refresh = ~refresh;
+  end
+ end
+
+ always @ (btL)
+	turnleft = ~btL;
+	
+ always @ (btR)
+	turnright = ~btR;
+	
+ always @ (speedSw) begin
+	if (speedSw == 1'b1)
+		speed = 2'b10;
+	else
+		speed = 1'b1;
+ end
+
+
+initial begin
+	
 	integer i = 0;
 	integer j = 0;
-	
+			
 	for (i = 0; i<7; i = i+1)
 		for (j = 0; j<21; j = j+1)
-			field[i][j] = 1'b0;
-	end else
-      #1 refresh = ~refresh;
+			field[i][j] = 1'b1;
+			
+	for (i = 0; i<6; i = i+1)
+		appleDot[i] = 1'b1;
 		
-    
-      
-    end
-	 
-  always @(bt0)
-  begin
-		turnright = ~bt0;
-		$restart;
-  end
-  
-  always @(bt1)
-  begin
-		turnleft = ~bt1;
-  end
-
-  
-  assign {seg1A, seg1B, seg1C, seg1D, seg1E, seg1F, seg1G, seg1DP} = showField1;
-  assign {seg2A, seg2B, seg2C, seg2D, seg2E, seg2F, seg2G, seg2DP} = showField2;
-  assign {seg3A, seg3B, seg3C, seg3D, seg3E, seg3F, seg3G, seg3DP} = showField3;
-  assign {seg4A, seg4B, seg4C, seg4D, seg4E, seg4F, seg4G, seg4DP} = showField4;
-  assign {seg5A, seg5B, seg5C, seg5D, seg5E, seg5F, seg5G, seg5DP} = showField5;
-  assign {seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP} = showField6;
-
-
-  initial begin  // Main Snake logic (Now it is here just for debug)
-    
-  
-  integer i = 0;
-  integer j = 0;
-  
-  for (i = 0; i<7; i = i+1)
-      for (j = 0; j<21; j = j+1)
-      field[i][j] = 1'b1;
-
-    posy = 8'd0;
-	 posx = 8'd3;
-
+	appleDot[2] = 1'b0;
+		
+	
 end
-
 
 endmodule
