@@ -1,1 +1,0 @@
-Warning (10268): Verilog HDL information at snake.v(9): always construct contains both blocking and non-blocking assignments File: /home/user/CA_Projects/Snake_v0.1/snake.v Line: 9

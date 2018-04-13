@@ -88,6 +88,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "seg3DP",
+					"strict" : false
+				},
+				{
 					"name" : "seg4A",
 					"strict" : false
 				},
@@ -172,15 +176,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "bt0",
+					"name" : "seg6DP",
 					"strict" : false
 				},
 				{
-					"name" : "bt1",
+					"name" : "speaker",
+					"strict" : false
+				},
+				{
+					"name" : "sw1",
+					"strict" : false
+				},
+				{
+					"name" : "btL",
+					"strict" : false
+				},
+				{
+					"name" : "btR",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "speedSw",
 					"strict" : false
 				}
 			]

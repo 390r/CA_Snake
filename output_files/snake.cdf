@@ -3,6 +3,8 @@ JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
+	P ActionCode(Cfg)
+		Device PartName(10M50DAF484) Path("/home/user/CA_Projects/Ca_SnakeAndPiezo/output_files/") File("snake.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

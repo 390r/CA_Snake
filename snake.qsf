@@ -18,7 +18,7 @@
 #
 # Quartus Prime
 # Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-# Date created = 09:51:57  Март 16, 2018
+# Date created = 21:24:09  Апрель 11, 2018
 #
 # -------------------------------------------------------------------------- #
 #
@@ -40,7 +40,7 @@ set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY snake
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:51:57  Март 16, 2018"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:24:09  Апрель 11, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
@@ -50,17 +50,62 @@ set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name VERILOG_FILE snake.v
+set_global_assignment -name VERILOG_FILE piezo.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_C14 -to segA
-set_location_assignment PIN_C15 -to segC
-set_location_assignment PIN_E15 -to segB
-set_location_assignment PIN_C16 -to segD
-set_location_assignment PIN_D15 -to segDP
-set_location_assignment PIN_D17 -to segF
-set_location_assignment PIN_E16 -to segE
-set_location_assignment PIN_C17 -to segG
-set_location_assignment PIN_B8 -to bt0
-set_location_assignment PIN_A7 -to reset
+set_location_assignment PIN_P11 -to clk
+set_location_assignment PIN_AA2 -to speaker
+set_location_assignment PIN_B8 -to btL
+set_location_assignment PIN_C10 -to speedSw
+set_location_assignment PIN_F15 -to sw1
+set_location_assignment PIN_N20 -to seg1G
+set_location_assignment PIN_A16 -to seg5DP
+set_location_assignment PIN_A17 -to seg5E
+set_location_assignment PIN_A18 -to seg5F
+set_location_assignment PIN_B17 -to seg5G
+set_location_assignment PIN_E16 -to seg6E
+set_location_assignment PIN_D17 -to seg6F
+set_location_assignment PIN_C17 -to seg6G
+set_location_assignment PIN_F20 -to seg2G
+set_location_assignment PIN_J20 -to seg1A
+set_location_assignment PIN_K20 -to seg1B
+set_location_assignment PIN_L18 -to seg1C
+set_location_assignment PIN_N18 -to seg1D
+set_location_assignment PIN_L19 -to seg1DP
+set_location_assignment PIN_M20 -to seg1E
+set_location_assignment PIN_N19 -to seg1F
+set_location_assignment PIN_F18 -to seg2A
+set_location_assignment PIN_E20 -to seg2B
+set_location_assignment PIN_E19 -to seg2C
+set_location_assignment PIN_J18 -to seg2D
+set_location_assignment PIN_F17 -to seg2DP
+set_location_assignment PIN_H19 -to seg2E
+set_location_assignment PIN_F19 -to seg2F
+set_location_assignment PIN_F21 -to seg3A
+set_location_assignment PIN_E22 -to seg3B
+set_location_assignment PIN_E21 -to seg3C
+set_location_assignment PIN_C19 -to seg3D
+set_location_assignment PIN_D22 -to seg3DP
+set_location_assignment PIN_C20 -to seg3E
+set_location_assignment PIN_D19 -to seg3F
+set_location_assignment PIN_E17 -to seg3G
+set_location_assignment PIN_B20 -to seg4A
+set_location_assignment PIN_A20 -to seg4B
+set_location_assignment PIN_B19 -to seg4C
+set_location_assignment PIN_A21 -to seg4D
+set_location_assignment PIN_A19 -to seg4DP
+set_location_assignment PIN_B21 -to seg4E
+set_location_assignment PIN_C22 -to seg4F
+set_location_assignment PIN_B22 -to seg4G
+set_location_assignment PIN_C18 -to seg5A
+set_location_assignment PIN_D18 -to seg5B
+set_location_assignment PIN_E18 -to seg5C
+set_location_assignment PIN_B16 -to seg5D
+set_location_assignment PIN_C14 -to seg6A
+set_location_assignment PIN_E15 -to seg6B
+set_location_assignment PIN_C15 -to seg6C
+set_location_assignment PIN_C16 -to seg6D
+set_location_assignment PIN_D15 -to seg6DP
+set_location_assignment PIN_A7 -to btR
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

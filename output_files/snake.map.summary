@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue Mar 20 23:02:43 2018
+Analysis & Synthesis Status : Successful - Fri Apr 13 00:23:38 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : snake
 Top-level Entity Name : snake
 Family : MAX 10
-Total logic elements : 1,094
-    Total combinational functions : 1,094
-    Dedicated logic registers : 192
-Total registers : 192
-Total pins : 51
+Total logic elements : 7,337
+    Total combinational functions : 6,764
+    Dedicated logic registers : 860
+Total registers : 860
+Total pins : 54
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

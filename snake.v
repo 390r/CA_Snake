@@ -3,7 +3,7 @@ module snake(input btL, btR, clk, sw1, speedSw, output seg1A, seg1B, seg1C, seg1
 															  seg3A, seg3B, seg3C, seg3D, seg3E, seg3F, seg3G, seg3DP,
 															  seg4A, seg4B, seg4C, seg4D, seg4E, seg4F, seg4G, seg4DP,
 															  seg5A, seg5B, seg5C, seg5D, seg5E, seg5F, seg5G, seg5DP,
-															  seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP);
+															  seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP, speaker);
 
 reg field [0:6] [0:20];   //Game field
 reg [0:7] showField1 = 8'b11111101;	reg [0:7] showField2 = 8'b11110111;	reg [0:7] showField3 = 8'b11011111;
@@ -16,6 +16,8 @@ reg gameOver = 1'b0;
 reg [1:0]speed = 1'b1;
 reg applePicked = 1'b0;
 reg appleDot[5:0];
+reg speakerCall = 1'b0;
+reg [1:0] soundCode = 2'b01;
 
 
 reg drawFrame = 1'b0;
@@ -32,6 +34,8 @@ integer prevX;
 integer prevY;
 integer lastX;
 integer lastY;
+
+ piezo beep(clk, speakerCall, soundCode, speaker);
 
  assign {seg1A, seg1B, seg1C, seg1D, seg1E, seg1F, seg1G, seg1DP} = showField1;
  assign {seg2A, seg2B, seg2C, seg2D, seg2E, seg2F, seg2G, seg2DP} = showField2;
@@ -90,7 +94,8 @@ integer lastY;
 		appleDot[5] = 1'b0;
 		applePicked = 1'b0;
 	end
-  
+  soundCode = 1'b1;
+  speakerCall = ~speakerCall;
   if (sw1 == 1'b0) begin
 	snakePos[0][0] = 1;
 	snakePos[0][1] = 2;
@@ -113,8 +118,10 @@ integer lastY;
 	gameOver = 1'b0;
 	refresh = ~refresh;
   end 
-  else if (gameOver == 1'b1)
+  else if (gameOver == 1'b1) begin
 	  refresh = ~refresh;
+	  soundCode = 0;
+  end
   else begin
 	prevY = snakePos[headPointer][0];
    prevX = snakePos[headPointer][1];
@@ -150,8 +157,10 @@ integer lastY;
           prevY = prevY - 1'd1;
         end
       endcase
-		if (field[prevY][prevX] == 1'b0)
+		if (field[prevY][prevX] == 1'b0) begin
 			gameOver = 1'b1;
+			soundCode = 0;
+		end
       lastDirection = lastDirection + 2'b01;
 	end else
 	if (turnleft == 1'b1) begin
@@ -182,8 +191,10 @@ integer lastY;
             end
           endcase
     
-    if (field[prevY][prevX] == 1'b0)
+    if (field[prevY][prevX] == 1'b0) begin
 		gameOver = 1'b1;
+		soundCode = 0;
+		end
 
     lastDirection = lastDirection - 2'b01;
 	end else 
@@ -198,6 +209,7 @@ integer lastY;
 	if (prevY == 5)
 		if ((prevX == 8 && lastDirection == 2'b01) || (prevX == 11 && lastDirection == 2'b11)) begin
 			applePicked = 1'b1;
+			soundCode = 2'b10;
 			tailPointer = tailPointer - 1;
 		end
 		
@@ -209,7 +221,7 @@ integer lastY;
 
  always @ (btL)
 	turnleft = ~btL;
-	
+
  always @ (btR)
 	turnright = ~btR;
 	
@@ -225,6 +237,7 @@ initial begin
 	
 	integer i = 0;
 	integer j = 0;
+	
 			
 	for (i = 0; i<7; i = i+1)
 		for (j = 0; j<21; j = j+1)
