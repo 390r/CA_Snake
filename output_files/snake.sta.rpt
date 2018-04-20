@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for snake
-Thu Apr 19 16:08:18 2018
+Fri Apr 20 13:42:16 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -91,12 +91,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.62        ;
+; Average used               ; 1.60        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  61.7%      ;
+;     Processor 2            ;  60.5%      ;
 +----------------------------+-------------+
 
 
@@ -117,8 +117,8 @@ refer to the applicable agreement for further details.
 +-------------+-----------------+-------------------------+------------------------------------------------+
 ; Fmax        ; Restricted Fmax ; Clock Name              ; Note                                           ;
 +-------------+-----------------+-------------------------+------------------------------------------------+
-; 10.77 MHz   ; 10.77 MHz       ; drawFrame               ;                                                ;
-; 93.01 MHz   ; 93.01 MHz       ; clk                     ;                                                ;
+; 10.35 MHz   ; 10.35 MHz       ; drawFrame               ;                                                ;
+; 102.26 MHz  ; 102.26 MHz      ; clk                     ;                                                ;
 ; 1360.54 MHz ; 416.15 MHz      ; piezo:beep|nextNote[21] ; limit due to minimum period restriction (tmin) ;
 +-------------+-----------------+-------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -129,10 +129,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------+---------+---------------+
 ; Clock                   ; Slack   ; End Point TNS ;
 +-------------------------+---------+---------------+
-; drawFrame               ; -91.859 ; -40237.562    ;
-; clk                     ; -9.752  ; -226.299      ;
-; piezo:beep|nextNote[21] ; -2.416  ; -11.840       ;
-; slow_clk[24]            ; -0.708  ; -0.708        ;
+; drawFrame               ; -95.611 ; -40746.362    ;
+; clk                     ; -8.958  ; -216.725      ;
+; piezo:beep|nextNote[21] ; -2.223  ; -11.344       ;
+; slow_clk[24]            ; -0.726  ; -0.726        ;
 +-------------------------+---------+---------------+
 
 
@@ -143,8 +143,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------+-------+---------------+
 ; drawFrame               ; 0.325 ; 0.000         ;
 ; piezo:beep|nextNote[21] ; 0.341 ; 0.000         ;
-; clk                     ; 0.421 ; 0.000         ;
-; slow_clk[24]            ; 0.599 ; 0.000         ;
+; clk                     ; 0.420 ; 0.000         ;
+; slow_clk[24]            ; 0.539 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
@@ -166,7 +166,7 @@ No paths to report.
 ; Clock                   ; Slack  ; End Point TNS  ;
 +-------------------------+--------+----------------+
 ; clk                     ; -3.000 ; -111.031       ;
-; drawFrame               ; -1.403 ; -1088.728      ;
+; drawFrame               ; -1.403 ; -1090.131      ;
 ; piezo:beep|nextNote[21] ; -1.403 ; -8.418         ;
 ; slow_clk[24]            ; -1.403 ; -1.403         ;
 +-------------------------+--------+----------------+
@@ -183,9 +183,9 @@ No synchronizer chains to report.
 +-------------+-----------------+-------------------------+------------------------------------------------+
 ; Fmax        ; Restricted Fmax ; Clock Name              ; Note                                           ;
 +-------------+-----------------+-------------------------+------------------------------------------------+
-; 11.8 MHz    ; 11.8 MHz        ; drawFrame               ;                                                ;
-; 101.09 MHz  ; 101.09 MHz      ; clk                     ;                                                ;
-; 1483.68 MHz ; 416.15 MHz      ; piezo:beep|nextNote[21] ; limit due to minimum period restriction (tmin) ;
+; 11.33 MHz   ; 11.33 MHz       ; drawFrame               ;                                                ;
+; 111.32 MHz  ; 111.32 MHz      ; clk                     ;                                                ;
+; 1481.48 MHz ; 416.15 MHz      ; piezo:beep|nextNote[21] ; limit due to minimum period restriction (tmin) ;
 +-------------+-----------------+-------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -195,10 +195,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------+---------+---------------+
 ; Clock                   ; Slack   ; End Point TNS ;
 +-------------------------+---------+---------------+
-; drawFrame               ; -83.729 ; -36776.676    ;
-; clk                     ; -8.892  ; -199.840      ;
-; piezo:beep|nextNote[21] ; -2.074  ; -10.283       ;
-; slow_clk[24]            ; -0.577  ; -0.577        ;
+; drawFrame               ; -87.258 ; -37242.733    ;
+; clk                     ; -8.124  ; -190.253      ;
+; piezo:beep|nextNote[21] ; -1.953  ; -10.051       ;
+; slow_clk[24]            ; -0.586  ; -0.586        ;
 +-------------------------+---------+---------------+
 
 
@@ -208,9 +208,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                   ; Slack ; End Point TNS ;
 +-------------------------+-------+---------------+
 ; drawFrame               ; 0.292 ; 0.000         ;
-; piezo:beep|nextNote[21] ; 0.307 ; 0.000         ;
-; clk                     ; 0.389 ; 0.000         ;
-; slow_clk[24]            ; 0.505 ; 0.000         ;
+; piezo:beep|nextNote[21] ; 0.306 ; 0.000         ;
+; clk                     ; 0.387 ; 0.000         ;
+; slow_clk[24]            ; 0.448 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
@@ -232,7 +232,7 @@ No paths to report.
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
 ; clk                     ; -3.000 ; -111.031      ;
-; drawFrame               ; -1.403 ; -1088.728     ;
+; drawFrame               ; -1.403 ; -1090.131     ;
 ; piezo:beep|nextNote[21] ; -1.403 ; -8.418        ;
 ; slow_clk[24]            ; -1.403 ; -1.403        ;
 +-------------------------+--------+---------------+
@@ -249,10 +249,10 @@ No synchronizer chains to report.
 +-------------------------+---------+---------------+
 ; Clock                   ; Slack   ; End Point TNS ;
 +-------------------------+---------+---------------+
-; drawFrame               ; -36.339 ; -16148.575    ;
-; clk                     ; -3.537  ; -49.915       ;
-; piezo:beep|nextNote[21] ; -0.498  ; -1.746        ;
-; slow_clk[24]            ; -0.011  ; -0.011        ;
+; drawFrame               ; -37.980 ; -16264.281    ;
+; clk                     ; -3.172  ; -46.683       ;
+; piezo:beep|nextNote[21] ; -0.369  ; -1.464        ;
+; slow_clk[24]            ; -0.015  ; -0.015        ;
 +-------------------------+---------+---------------+
 
 
@@ -261,10 +261,10 @@ No synchronizer chains to report.
 +-------------------------+-------+---------------+
 ; Clock                   ; Slack ; End Point TNS ;
 +-------------------------+-------+---------------+
-; drawFrame               ; 0.142 ; 0.000         ;
-; piezo:beep|nextNote[21] ; 0.148 ; 0.000         ;
-; clk                     ; 0.167 ; 0.000         ;
-; slow_clk[24]            ; 0.244 ; 0.000         ;
+; drawFrame               ; 0.141 ; 0.000         ;
+; piezo:beep|nextNote[21] ; 0.147 ; 0.000         ;
+; clk                     ; 0.166 ; 0.000         ;
+; slow_clk[24]            ; 0.219 ; 0.000         ;
 +-------------------------+-------+---------------+
 
 
@@ -285,8 +285,8 @@ No paths to report.
 +-------------------------+--------+---------------+
 ; Clock                   ; Slack  ; End Point TNS ;
 +-------------------------+--------+---------------+
-; clk                     ; -3.000 ; -82.797       ;
-; drawFrame               ; -1.000 ; -776.000      ;
+; clk                     ; -3.000 ; -82.397       ;
+; drawFrame               ; -1.000 ; -777.000      ;
 ; piezo:beep|nextNote[21] ; -1.000 ; -6.000        ;
 ; slow_clk[24]            ; -1.000 ; -1.000        ;
 +-------------------------+--------+---------------+
@@ -303,16 +303,16 @@ No synchronizer chains to report.
 +--------------------------+------------+-------+----------+---------+---------------------+
 ; Clock                    ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------+------------+-------+----------+---------+---------------------+
-; Worst-case Slack         ; -91.859    ; 0.142 ; N/A      ; N/A     ; -3.000              ;
-;  clk                     ; -9.752     ; 0.167 ; N/A      ; N/A     ; -3.000              ;
-;  drawFrame               ; -91.859    ; 0.142 ; N/A      ; N/A     ; -1.403              ;
-;  piezo:beep|nextNote[21] ; -2.416     ; 0.148 ; N/A      ; N/A     ; -1.403              ;
-;  slow_clk[24]            ; -0.708     ; 0.244 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS          ; -40476.409 ; 0.0   ; 0.0      ; 0.0     ; -1209.58            ;
-;  clk                     ; -226.299   ; 0.000 ; N/A      ; N/A     ; -111.031            ;
-;  drawFrame               ; -40237.562 ; 0.000 ; N/A      ; N/A     ; -1088.728           ;
-;  piezo:beep|nextNote[21] ; -11.840    ; 0.000 ; N/A      ; N/A     ; -8.418              ;
-;  slow_clk[24]            ; -0.708     ; 0.000 ; N/A      ; N/A     ; -1.403              ;
+; Worst-case Slack         ; -95.611    ; 0.141 ; N/A      ; N/A     ; -3.000              ;
+;  clk                     ; -8.958     ; 0.166 ; N/A      ; N/A     ; -3.000              ;
+;  drawFrame               ; -95.611    ; 0.141 ; N/A      ; N/A     ; -1.403              ;
+;  piezo:beep|nextNote[21] ; -2.223     ; 0.147 ; N/A      ; N/A     ; -1.403              ;
+;  slow_clk[24]            ; -0.726     ; 0.219 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS          ; -40975.157 ; 0.0   ; 0.0      ; 0.0     ; -1210.983           ;
+;  clk                     ; -216.725   ; 0.000 ; N/A      ; N/A     ; -111.031            ;
+;  drawFrame               ; -40746.362 ; 0.000 ; N/A      ; N/A     ; -1090.131           ;
+;  piezo:beep|nextNote[21] ; -11.344    ; 0.000 ; N/A      ; N/A     ; -8.418              ;
+;  slow_clk[24]            ; -0.726     ; 0.000 ; N/A      ; N/A     ; -1.403              ;
 +--------------------------+------------+-------+----------+---------+---------------------+
 
 
@@ -573,13 +573,13 @@ No synchronizer chains to report.
 +-------------------------+-------------------------+--------------+----------+----------+----------+
 ; From Clock              ; To Clock                ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------+-------------------------+--------------+----------+----------+----------+
-; clk                     ; clk                     ; 48643        ; 0        ; 0        ; 0        ;
-; drawFrame               ; clk                     ; 3591         ; 0        ; 0        ; 0        ;
-; piezo:beep|nextNote[21] ; clk                     ; 271          ; 160      ; 0        ; 0        ;
+; clk                     ; clk                     ; 34219        ; 0        ; 0        ; 0        ;
+; drawFrame               ; clk                     ; 2527         ; 0        ; 0        ; 0        ;
+; piezo:beep|nextNote[21] ; clk                     ; 223          ; 112      ; 0        ; 0        ;
 ; slow_clk[24]            ; clk                     ; 1            ; 1        ; 0        ; 0        ;
 ; drawFrame               ; drawFrame               ; > 2147483647 ; 0        ; 0        ; 0        ;
-; clk                     ; piezo:beep|nextNote[21] ; 183          ; 0        ; 0        ; 0        ;
-; drawFrame               ; piezo:beep|nextNote[21] ; 40           ; 0        ; 0        ; 0        ;
+; clk                     ; piezo:beep|nextNote[21] ; 179          ; 0        ; 0        ; 0        ;
+; drawFrame               ; piezo:beep|nextNote[21] ; 36           ; 0        ; 0        ; 0        ;
 ; piezo:beep|nextNote[21] ; piezo:beep|nextNote[21] ; 1            ; 0        ; 0        ; 0        ;
 ; drawFrame               ; slow_clk[24]            ; 1            ; 1        ; 0        ; 0        ;
 +-------------------------+-------------------------+--------------+----------+----------+----------+
@@ -591,13 +591,13 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------+-------------------------+--------------+----------+----------+----------+
 ; From Clock              ; To Clock                ; RR Paths     ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------+-------------------------+--------------+----------+----------+----------+
-; clk                     ; clk                     ; 48643        ; 0        ; 0        ; 0        ;
-; drawFrame               ; clk                     ; 3591         ; 0        ; 0        ; 0        ;
-; piezo:beep|nextNote[21] ; clk                     ; 271          ; 160      ; 0        ; 0        ;
+; clk                     ; clk                     ; 34219        ; 0        ; 0        ; 0        ;
+; drawFrame               ; clk                     ; 2527         ; 0        ; 0        ; 0        ;
+; piezo:beep|nextNote[21] ; clk                     ; 223          ; 112      ; 0        ; 0        ;
 ; slow_clk[24]            ; clk                     ; 1            ; 1        ; 0        ; 0        ;
 ; drawFrame               ; drawFrame               ; > 2147483647 ; 0        ; 0        ; 0        ;
-; clk                     ; piezo:beep|nextNote[21] ; 183          ; 0        ; 0        ; 0        ;
-; drawFrame               ; piezo:beep|nextNote[21] ; 40           ; 0        ; 0        ; 0        ;
+; clk                     ; piezo:beep|nextNote[21] ; 179          ; 0        ; 0        ; 0        ;
+; drawFrame               ; piezo:beep|nextNote[21] ; 36           ; 0        ; 0        ; 0        ;
 ; piezo:beep|nextNote[21] ; piezo:beep|nextNote[21] ; 1            ; 0        ; 0        ; 0        ;
 ; drawFrame               ; slow_clk[24]            ; 1            ; 1        ; 0        ; 0        ;
 +-------------------------+-------------------------+--------------+----------+----------+----------+
@@ -624,7 +624,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0     ;
 ; Unconstrained Clocks            ; 0     ; 0     ;
 ; Unconstrained Input Ports       ; 4     ; 4     ;
-; Unconstrained Input Port Paths  ; 2282  ; 2282  ;
+; Unconstrained Input Port Paths  ; 2283  ; 2283  ;
 ; Unconstrained Output Ports      ; 45    ; 45    ;
 ; Unconstrained Output Port Paths ; 32301 ; 32301 ;
 +---------------------------------+-------+-------+
@@ -663,6 +663,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; seg1B       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1C       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1D       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg1DP      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1E       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1F       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1G       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -699,7 +700,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; seg6B       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6C       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6D       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; seg6DP      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6E       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6F       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6G       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -728,6 +728,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; seg1B       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1C       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1D       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg1DP      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1E       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1F       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg1G       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -764,7 +765,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; seg6B       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6C       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6D       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; seg6DP      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6E       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6F       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; seg6G       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -778,7 +778,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Apr 19 16:08:06 2018
+    Info: Processing started: Fri Apr 20 13:42:05 2018
 Info: Command: quartus_sta snake -c snake
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -798,27 +798,27 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -91.859
+Info (332146): Worst-case setup slack is -95.611
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -91.859          -40237.562 drawFrame 
-    Info (332119):    -9.752            -226.299 clk 
-    Info (332119):    -2.416             -11.840 piezo:beep|nextNote[21] 
-    Info (332119):    -0.708              -0.708 slow_clk[24] 
+    Info (332119):   -95.611          -40746.362 drawFrame 
+    Info (332119):    -8.958            -216.725 clk 
+    Info (332119):    -2.223             -11.344 piezo:beep|nextNote[21] 
+    Info (332119):    -0.726              -0.726 slow_clk[24] 
 Info (332146): Worst-case hold slack is 0.325
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.325               0.000 drawFrame 
     Info (332119):     0.341               0.000 piezo:beep|nextNote[21] 
-    Info (332119):     0.421               0.000 clk 
-    Info (332119):     0.599               0.000 slow_clk[24] 
+    Info (332119):     0.420               0.000 clk 
+    Info (332119):     0.539               0.000 slow_clk[24] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000            -111.031 clk 
-    Info (332119):    -1.403           -1088.728 drawFrame 
+    Info (332119):    -1.403           -1090.131 drawFrame 
     Info (332119):    -1.403              -8.418 piezo:beep|nextNote[21] 
     Info (332119):    -1.403              -1.403 slow_clk[24] 
 Info: Analyzing Slow 1200mV 0C Model
@@ -826,61 +826,61 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -83.729
+Info (332146): Worst-case setup slack is -87.258
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -83.729          -36776.676 drawFrame 
-    Info (332119):    -8.892            -199.840 clk 
-    Info (332119):    -2.074             -10.283 piezo:beep|nextNote[21] 
-    Info (332119):    -0.577              -0.577 slow_clk[24] 
+    Info (332119):   -87.258          -37242.733 drawFrame 
+    Info (332119):    -8.124            -190.253 clk 
+    Info (332119):    -1.953             -10.051 piezo:beep|nextNote[21] 
+    Info (332119):    -0.586              -0.586 slow_clk[24] 
 Info (332146): Worst-case hold slack is 0.292
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.292               0.000 drawFrame 
-    Info (332119):     0.307               0.000 piezo:beep|nextNote[21] 
-    Info (332119):     0.389               0.000 clk 
-    Info (332119):     0.505               0.000 slow_clk[24] 
+    Info (332119):     0.306               0.000 piezo:beep|nextNote[21] 
+    Info (332119):     0.387               0.000 clk 
+    Info (332119):     0.448               0.000 slow_clk[24] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000            -111.031 clk 
-    Info (332119):    -1.403           -1088.728 drawFrame 
+    Info (332119):    -1.403           -1090.131 drawFrame 
     Info (332119):    -1.403              -8.418 piezo:beep|nextNote[21] 
     Info (332119):    -1.403              -1.403 slow_clk[24] 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -36.339
+Info (332146): Worst-case setup slack is -37.980
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -36.339          -16148.575 drawFrame 
-    Info (332119):    -3.537             -49.915 clk 
-    Info (332119):    -0.498              -1.746 piezo:beep|nextNote[21] 
-    Info (332119):    -0.011              -0.011 slow_clk[24] 
-Info (332146): Worst-case hold slack is 0.142
+    Info (332119):   -37.980          -16264.281 drawFrame 
+    Info (332119):    -3.172             -46.683 clk 
+    Info (332119):    -0.369              -1.464 piezo:beep|nextNote[21] 
+    Info (332119):    -0.015              -0.015 slow_clk[24] 
+Info (332146): Worst-case hold slack is 0.141
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.142               0.000 drawFrame 
-    Info (332119):     0.148               0.000 piezo:beep|nextNote[21] 
-    Info (332119):     0.167               0.000 clk 
-    Info (332119):     0.244               0.000 slow_clk[24] 
+    Info (332119):     0.141               0.000 drawFrame 
+    Info (332119):     0.147               0.000 piezo:beep|nextNote[21] 
+    Info (332119):     0.166               0.000 clk 
+    Info (332119):     0.219               0.000 slow_clk[24] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -82.797 clk 
-    Info (332119):    -1.000            -776.000 drawFrame 
+    Info (332119):    -3.000             -82.397 clk 
+    Info (332119):    -1.000            -777.000 drawFrame 
     Info (332119):    -1.000              -6.000 piezo:beep|nextNote[21] 
     Info (332119):    -1.000              -1.000 slow_clk[24] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 917 megabytes
-    Info: Processing ended: Thu Apr 19 16:08:18 2018
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 912 megabytes
+    Info: Processing ended: Fri Apr 20 13:42:16 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:17
 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for snake
-Thu Apr 19 16:06:43 2018
+Fri Apr 20 13:40:45 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,15 +14,17 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |snake
- 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 14. Port Connectivity Checks: "piezo:beep"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |snake
+ 14. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 15. Port Connectivity Checks: "piezo:beep"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,15 +50,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 19 16:06:42 2018       ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 20 13:40:45 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; snake                                       ;
 ; Top-level Entity Name              ; snake                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 7,337                                       ;
-;     Total combinational functions  ; 6,764                                       ;
-;     Dedicated logic registers      ; 860                                         ;
-; Total registers                    ; 860                                         ;
+; Total logic elements               ; 7,311                                       ;
+;     Total combinational functions  ; 6,738                                       ;
+;     Dedicated logic registers      ; 861                                         ;
+; Total registers                    ; 861                                         ;
 ; Total pins                         ; 54                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -196,20 +198,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 7,337     ;
+; Estimated Total logic elements              ; 7,311     ;
 ;                                             ;           ;
-; Total combinational functions               ; 6764      ;
+; Total combinational functions               ; 6738      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 5232      ;
-;     -- 3 input functions                    ; 688       ;
-;     -- <=2 input functions                  ; 844       ;
+;     -- 4 input functions                    ; 5066      ;
+;     -- 3 input functions                    ; 830       ;
+;     -- <=2 input functions                  ; 842       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 6078      ;
+;     -- normal mode                          ; 6052      ;
 ;     -- arithmetic mode                      ; 686       ;
 ;                                             ;           ;
-; Total registers                             ; 860       ;
-;     -- Dedicated logic registers            ; 860       ;
+; Total registers                             ; 861       ;
+;     -- Dedicated logic registers            ; 861       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 54        ;
@@ -217,9 +219,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; drawFrame ;
-; Maximum fan-out                             ; 777       ;
-; Total fan-out                               ; 27251     ;
-; Average fan-out                             ; 3.52      ;
+; Maximum fan-out                             ; 778       ;
+; Total fan-out                               ; 27011     ;
+; Average fan-out                             ; 3.50      ;
 +---------------------------------------------+-----------+
 
 
@@ -228,28 +230,40 @@ refer to the applicable agreement for further details.
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                 ; Entity Name     ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |snake                                ; 6764 (6243)         ; 860 (802)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 54   ; 0            ; 0          ; |snake                                                                                              ; snake           ; work         ;
-;    |lpm_divide:Mod0|                  ; 392 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0                                                                              ; lpm_divide      ; work         ;
-;       |lpm_divide_g3o:auto_generated| ; 392 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated                                                ; lpm_divide_g3o  ; work         ;
-;          |abs_divider_ibg:divider|    ; 392 (6)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated|abs_divider_ibg:divider                        ; abs_divider_ibg ; work         ;
+; |snake                                ; 6738 (6223)         ; 861 (803)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 54   ; 0            ; 0          ; |snake                                                                                              ; snake           ; work         ;
+;    |lpm_divide:Mod0|                  ; 391 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_g3o:auto_generated| ; 391 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated                                                ; lpm_divide_g3o  ; work         ;
+;          |abs_divider_ibg:divider|    ; 391 (6)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated|abs_divider_ibg:divider                        ; abs_divider_ibg ; work         ;
 ;             |alt_u_div_ohe:divider|   ; 333 (333)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated|abs_divider_ibg:divider|alt_u_div_ohe:divider  ; alt_u_div_ohe   ; work         ;
-;             |lpm_abs_8b9:my_abs_num|  ; 53 (53)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated|abs_divider_ibg:divider|lpm_abs_8b9:my_abs_num ; lpm_abs_8b9     ; work         ;
-;    |piezo:beep|                       ; 129 (129)           ; 58 (58)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|piezo:beep                                                                                   ; piezo           ; work         ;
+;             |lpm_abs_8b9:my_abs_num|  ; 52 (52)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|lpm_divide:Mod0|lpm_divide_g3o:auto_generated|abs_divider_ibg:divider|lpm_abs_8b9:my_abs_num ; lpm_abs_8b9     ; work         ;
+;    |piezo:beep|                       ; 124 (124)           ; 58 (58)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |snake|piezo:beep                                                                                   ; piezo           ; work         ;
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; appleDot[1,3,4]                       ; Merged with appleDot[0]                ;
-; soundCode[1]                          ; Merged with applePicked                ;
-; piezo:beep|clkdivider[6..8]           ; Stuck at GND due to stuck port data_in ;
-; appleDot[0]                           ; Stuck at VCC due to stuck port data_in ;
-; Total Number of Removed Registers = 8 ;                                        ;
-+---------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; currentApple[0]                        ; Stuck at GND due to stuck port data_in ;
+; appleDot[3..5]                         ; Merged with appleDot[1]                ;
+; soundCode[1]                           ; Merged with applePicked                ;
+; currentApple[2]                        ; Stuck at GND due to stuck port data_in ;
+; piezo:beep|clkdivider[6..8]            ; Stuck at GND due to stuck port data_in ;
+; appleDot[1]                            ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 10 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                          ;
++-----------------+---------------------------+----------------------------------------+
+; Register name   ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------+---------------------------+----------------------------------------+
+; currentApple[0] ; Stuck at GND              ; appleDot[1]                            ;
+;                 ; due to stuck port data_in ;                                        ;
++-----------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -257,12 +271,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 860   ;
-; Number of registers using Synchronous Clear  ; 35    ;
+; Total registers                              ; 861   ;
+; Number of registers using Synchronous Clear  ; 34    ;
 ; Number of registers using Synchronous Load   ; 2     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 796   ;
+; Number of registers using Clock Enable       ; 798   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -272,11 +286,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; headPointer[0]                         ; 207     ;
-; appleDot[5]                            ; 2       ;
-; lastDirection[0]                       ; 20      ;
-; soundCode[0]                           ; 10      ;
-; Total number of inverted registers = 4 ;         ;
+; headPointer[0]                         ; 206     ;
+; appleDot[0]                            ; 1       ;
+; appleDot[2]                            ; 1       ;
+; lastDirection[0]                       ; 25      ;
+; soundCode[0]                           ; 8       ;
+; Total number of inverted registers = 5 ;         ;
 +----------------------------------------+---------+
 
 
@@ -285,15 +300,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |snake|headPointer[19]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |snake|headPointer[25]          ;
 ; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |snake|snakePos[0][1][14]       ;
-; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |snake|snakePos[1][0][4]        ;
-; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |snake|snakePos[2][0][31]       ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |snake|piezo:beep|clkdivider[3] ;
+; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |snake|snakePos[1][0][25]       ;
+; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |snake|snakePos[2][0][29]       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |snake|piezo:beep|clkdivider[5] ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |snake|piezo:beep|clkdivider[4] ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |snake|tailPointer[22]          ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |snake|tailPointer[21]          ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |snake|lastDirection[0]         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |snake|appleDot[5]              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |snake|appleDot[2]              ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |snake|Mux125                   ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |snake|Mux167                   ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |snake|prevX                    ;
@@ -354,25 +369,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 54                          ;
-; cycloneiii_ff         ; 860                         ;
-;     ENA               ; 764                         ;
+; cycloneiii_ff         ; 861                         ;
+;     ENA               ; 766                         ;
 ;     ENA SCLR          ; 32                          ;
-;     SCLR              ; 1                           ;
 ;     SCLR SLD          ; 2                           ;
 ;     plain             ; 61                          ;
-; cycloneiii_lcell_comb ; 6766                        ;
+; cycloneiii_lcell_comb ; 6741                        ;
 ;     arith             ; 686                         ;
 ;         2 data inputs ; 525                         ;
 ;         3 data inputs ; 161                         ;
-;     normal            ; 6080                        ;
+;     normal            ; 6055                        ;
 ;         0 data inputs ; 32                          ;
-;         1 data inputs ; 21                          ;
-;         2 data inputs ; 268                         ;
-;         3 data inputs ; 527                         ;
-;         4 data inputs ; 5232                        ;
+;         1 data inputs ; 23                          ;
+;         2 data inputs ; 265                         ;
+;         3 data inputs ; 669                         ;
+;         4 data inputs ; 5066                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 105.90                      ;
-; Average LUT depth     ; 35.53                       ;
+; Max LUT depth         ; 107.00                      ;
+; Average LUT depth     ; 35.87                       ;
 +-----------------------+-----------------------------+
 
 
@@ -391,7 +405,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Apr 19 16:06:10 2018
+    Info: Processing started: Fri Apr 20 13:40:12 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off snake -c snake
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -400,27 +414,29 @@ Info (12021): Found 1 design units, including 1 entities, in source file snake.v
 Info (12021): Found 1 design units, including 1 entities, in source file piezo.v
     Info (12023): Found entity 1: piezo File: /home/user/CA_Projects/test/CA_Snake/piezo.v Line: 8
 Info (12127): Elaborating entity "snake" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at snake.v(37): object "reset" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 37
-Warning (10036): Verilog HDL or VHDL warning at snake.v(52): object "lastX" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 52
-Warning (10036): Verilog HDL or VHDL warning at snake.v(53): object "lastY" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 53
-Warning (10235): Verilog HDL Always Construct warning at snake.v(80): variable "gameOver" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 80
-Warning (10235): Verilog HDL Always Construct warning at snake.v(89): variable "headPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 89
-Warning (10235): Verilog HDL Always Construct warning at snake.v(89): variable "tailPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 89
-Warning (10235): Verilog HDL Always Construct warning at snake.v(91): variable "headPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 91
-Warning (10235): Verilog HDL Always Construct warning at snake.v(91): variable "tailPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 91
-Warning (10235): Verilog HDL Always Construct warning at snake.v(95): variable "tailPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 95
-Warning (10235): Verilog HDL Always Construct warning at snake.v(99): variable "headPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 99
+Warning (10036): Verilog HDL or VHDL warning at snake.v(29): object "randomHelper" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 29
+Warning (10036): Verilog HDL or VHDL warning at snake.v(40): object "reset" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 40
+Warning (10036): Verilog HDL or VHDL warning at snake.v(55): object "lastX" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 55
+Warning (10036): Verilog HDL or VHDL warning at snake.v(56): object "lastY" assigned a value but never read File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 56
+Warning (10235): Verilog HDL Always Construct warning at snake.v(85): variable "gameOver" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 85
+Warning (10235): Verilog HDL Always Construct warning at snake.v(94): variable "headPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 94
+Warning (10235): Verilog HDL Always Construct warning at snake.v(94): variable "tailPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 94
+Warning (10235): Verilog HDL Always Construct warning at snake.v(96): variable "headPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 96
+Warning (10235): Verilog HDL Always Construct warning at snake.v(96): variable "tailPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 96
+Warning (10235): Verilog HDL Always Construct warning at snake.v(100): variable "tailPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 100
+Warning (10235): Verilog HDL Always Construct warning at snake.v(104): variable "headPointer" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 104
+Warning (10230): Verilog HDL assignment warning at snake.v(123): truncated value with size 32 to match size of target (3) File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 123
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "snakePos" into its bus
-Info (12128): Elaborating entity "piezo" for hierarchy "piezo:beep" File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 56
+Info (12128): Elaborating entity "piezo" for hierarchy "piezo:beep" File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 59
 Warning (10230): Verilog HDL assignment warning at piezo.v(154): truncated value with size 32 to match size of target (22) File: /home/user/CA_Projects/test/CA_Snake/piezo.v Line: 154
 Warning (10230): Verilog HDL assignment warning at piezo.v(158): truncated value with size 32 to match size of target (7) File: /home/user/CA_Projects/test/CA_Snake/piezo.v Line: 158
 Warning (10034): Output port "lightl" at piezo.v(8) has no driver File: /home/user/CA_Projects/test/CA_Snake/piezo.v Line: 8
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "piezo:beep|Ram0" is uninferred because MIF is not supported for the selected family File: /home/user/CA_Projects/test/CA_Snake/piezo.v Line: 20
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 198
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 198
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 198
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 205
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 205
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 205
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "3"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -444,21 +460,28 @@ Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity
 Info (13014): Ignored 31 buffer(s)
     Info (13016): Ignored 31 CARRY_SUM buffer(s)
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "seg1DP" is stuck at VCC File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 1
     Warning (13410): Pin "seg2DP" is stuck at VCC File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 2
     Warning (13410): Pin "seg4DP" is stuck at VCC File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 4
     Warning (13410): Pin "seg5DP" is stuck at VCC File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 5
+    Warning (13410): Pin "seg6DP" is stuck at VCC File: /home/user/CA_Projects/test/CA_Snake/snake.v Line: 6
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file /home/user/CA_Projects/test/CA_Snake/output_files/snake.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7543 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7518 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 49 output pins
-    Info (21061): Implemented 7489 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 1008 megabytes
-    Info: Processing ended: Thu Apr 19 16:06:43 2018
+    Info (21061): Implemented 7464 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 1011 megabytes
+    Info: Processing ended: Fri Apr 20 13:40:45 2018
     Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Total CPU time (on all processors): 00:00:39
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/user/CA_Projects/test/CA_Snake/output_files/snake.map.smsg.
 
 

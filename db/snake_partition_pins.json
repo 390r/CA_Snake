@@ -32,6 +32,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "seg1DP",
+					"strict" : false
+				},
+				{
 					"name" : "seg2A",
 					"strict" : false
 				},
@@ -173,10 +177,6 @@
 				},
 				{
 					"name" : "seg6G",
-					"strict" : false
-				},
-				{
-					"name" : "seg6DP",
 					"strict" : false
 				},
 				{

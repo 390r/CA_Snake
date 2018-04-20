@@ -3,20 +3,20 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'drawFrame'
-Slack : -91.859
-TNS   : -40237.562
+Slack : -95.611
+TNS   : -40746.362
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -9.752
-TNS   : -226.299
+Slack : -8.958
+TNS   : -216.725
 
 Type  : Slow 1200mV 85C Model Setup 'piezo:beep|nextNote[21]'
-Slack : -2.416
-TNS   : -11.840
+Slack : -2.223
+TNS   : -11.344
 
 Type  : Slow 1200mV 85C Model Setup 'slow_clk[24]'
-Slack : -0.708
-TNS   : -0.708
+Slack : -0.726
+TNS   : -0.726
 
 Type  : Slow 1200mV 85C Model Hold 'drawFrame'
 Slack : 0.325
@@ -27,11 +27,11 @@ Slack : 0.341
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.421
+Slack : 0.420
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'slow_clk[24]'
-Slack : 0.599
+Slack : 0.539
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
@@ -40,7 +40,7 @@ TNS   : -111.031
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'drawFrame'
 Slack : -1.403
-TNS   : -1088.728
+TNS   : -1090.131
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'piezo:beep|nextNote[21]'
 Slack : -1.403
@@ -51,35 +51,35 @@ Slack : -1.403
 TNS   : -1.403
 
 Type  : Slow 1200mV 0C Model Setup 'drawFrame'
-Slack : -83.729
-TNS   : -36776.676
+Slack : -87.258
+TNS   : -37242.733
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -8.892
-TNS   : -199.840
+Slack : -8.124
+TNS   : -190.253
 
 Type  : Slow 1200mV 0C Model Setup 'piezo:beep|nextNote[21]'
-Slack : -2.074
-TNS   : -10.283
+Slack : -1.953
+TNS   : -10.051
 
 Type  : Slow 1200mV 0C Model Setup 'slow_clk[24]'
-Slack : -0.577
-TNS   : -0.577
+Slack : -0.586
+TNS   : -0.586
 
 Type  : Slow 1200mV 0C Model Hold 'drawFrame'
 Slack : 0.292
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'piezo:beep|nextNote[21]'
-Slack : 0.307
+Slack : 0.306
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.389
+Slack : 0.387
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'slow_clk[24]'
-Slack : 0.505
+Slack : 0.448
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
@@ -88,7 +88,7 @@ TNS   : -111.031
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'drawFrame'
 Slack : -1.403
-TNS   : -1088.728
+TNS   : -1090.131
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'piezo:beep|nextNote[21]'
 Slack : -1.403
@@ -99,44 +99,44 @@ Slack : -1.403
 TNS   : -1.403
 
 Type  : Fast 1200mV 0C Model Setup 'drawFrame'
-Slack : -36.339
-TNS   : -16148.575
+Slack : -37.980
+TNS   : -16264.281
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -3.537
-TNS   : -49.915
+Slack : -3.172
+TNS   : -46.683
 
 Type  : Fast 1200mV 0C Model Setup 'piezo:beep|nextNote[21]'
-Slack : -0.498
-TNS   : -1.746
+Slack : -0.369
+TNS   : -1.464
 
 Type  : Fast 1200mV 0C Model Setup 'slow_clk[24]'
-Slack : -0.011
-TNS   : -0.011
+Slack : -0.015
+TNS   : -0.015
 
 Type  : Fast 1200mV 0C Model Hold 'drawFrame'
-Slack : 0.142
+Slack : 0.141
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'piezo:beep|nextNote[21]'
-Slack : 0.148
+Slack : 0.147
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.167
+Slack : 0.166
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'slow_clk[24]'
-Slack : 0.244
+Slack : 0.219
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -82.797
+TNS   : -82.397
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'drawFrame'
 Slack : -1.000
-TNS   : -776.000
+TNS   : -777.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'piezo:beep|nextNote[21]'
 Slack : -1.000

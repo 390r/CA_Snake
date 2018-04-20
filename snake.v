@@ -24,6 +24,9 @@ module snake(input btL, btR, clk, sw1, speedSw, output seg1A, seg1B, seg1C, seg1
  reg [1:0]speed = 1'b1;
  reg applePicked = 1'b0;
  reg appleDot[5:0];
+ reg [2:0] currentApple;
+ reg [5:0] random;
+ reg [2:0] randomHelper = 1'b1;
  // Triggers the Speaker module if it needed
  reg speakerCall = 1'b0;
  // Specify which sound Sound module must play
@@ -64,8 +67,10 @@ reg [N-1:0] slow_clk = 0;
  assign {seg6A, seg6B, seg6C, seg6D, seg6E, seg6F, seg6G, seg6DP} = showField6;
 
  // Simple CLK divider
- always @ (posedge clk)
- slow_clk <= slow_clk + speed;
+ always @ (posedge clk) begin
+	slow_clk <= slow_clk + speed;
+	random = random + slow_clk[20];
+ end
  
  // Make next frape on every CLK divider overflow
  always @ (posedge slow_clk[N-1])
@@ -114,8 +119,9 @@ reg [N-1:0] slow_clk = 0;
  // If an apple was picked - play sound with soundcode 1 and increase the length of the snake
  if (applePicked == 1'b1) begin
   for (i = 0; i<6; i = i+1)
-   appleDot[i] = 1'b1;
-  appleDot[5] = 1'b0;
+	appleDot[i] = 1'b1;
+  currentApple = (currentApple - 2) % 4;
+  appleDot[currentApple] = 1'b0;
   applePicked = 1'b0;
  end
   soundCode = 1'b1;
@@ -126,7 +132,7 @@ reg [N-1:0] slow_clk = 0;
  snakePos[0][0] = 1;
  snakePos[0][1] = 2;
  
-   snakePos[1][0] = 1;
+ snakePos[1][0] = 1;
  snakePos[1][1] = 5;
  
  snakePos[2][0] = 1;
@@ -136,11 +142,12 @@ reg [N-1:0] slow_clk = 0;
  for (i = 0; i<6; i = i+1)
   appleDot[i] = 1'b1;
   
- appleDot[2] = 1'b0;
+ currentApple = 2;
+ appleDot[currentApple] = 1'b0;
 
  
  headPointer = 2;
-   tailPointer = 0;
+ tailPointer = 0;
  lastDirection = 2'b01;
  gameOver = 1'b0;
  refresh = ~refresh;
@@ -152,7 +159,7 @@ reg [N-1:0] slow_clk = 0;
   end
   else begin
  prevY = snakePos[headPointer][0];
-   prevX = snakePos[headPointer][1];
+ prevX = snakePos[headPointer][1];
  lastY = snakePos[tailPointer][0];
  lastX = snakePos[tailPointer][1];
  
@@ -235,7 +242,7 @@ reg [N-1:0] slow_clk = 0;
    endcase
  end
  if (prevY == 5)
-  if ((prevX == 8 && lastDirection == 2'b01) || (prevX == 11 && lastDirection == 2'b11)) begin
+  if ((prevX == 3*(currentApple+1)-1 && lastDirection == 2'b01) || (prevX == 3*(currentApple+1)+2 && lastDirection == 2'b11)) begin
    applePicked = 1'b1;
    soundCode = 2'b10;
    tailPointer = tailPointer - 1;
@@ -273,7 +280,7 @@ initial begin
  for (i = 0; i<6; i = i+1)
   appleDot[i] = 1'b1;
   
- appleDot[2] = 1'b0;
+ 
   
  
 end
