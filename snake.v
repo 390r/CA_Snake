@@ -116,16 +116,6 @@ reg [N-1:0] slow_clk = 0;
 // Main game logic. This block decides how to do next step, depending on sevetal parameters and states.
  always @ (posedge drawFrame) begin
  integer i=0;
- // If an apple was picked - play sound with soundcode 1 and increase the length of the snake
- if (applePicked == 1'b1) begin
-  for (i = 0; i<6; i = i+1)
-	appleDot[i] = 1'b1;
-  currentApple = (currentApple - 2) % 4;
-  appleDot[currentApple] = 1'b0;
-  applePicked = 1'b0;
- end
-  soundCode = 1'b1;
-  speakerCall = ~speakerCall;
   
   // If Reset Game Switch is triggered - hold all registers in the initial state.
   if (sw1 == 1'b0) begin
@@ -160,8 +150,8 @@ reg [N-1:0] slow_clk = 0;
   else begin
  prevY = snakePos[headPointer][0];
  prevX = snakePos[headPointer][1];
- lastY = snakePos[tailPointer][0];
- lastX = snakePos[tailPointer][1];
+ lastY = snakePos[headPointer][0];
+ lastX = snakePos[headPointer][1];
  
  if (headPointer == 10) headPointer = 0;
  else headPointer = headPointer + 1;
@@ -192,10 +182,6 @@ reg [N-1:0] slow_clk = 0;
           prevY = prevY - 1'd1;
         end
       endcase
-  if (field[prevY][prevX] == 1'b0) begin
-   gameOver = 1'b1;
-   soundCode = 0;
-  end
       lastDirection = lastDirection + 2'b01;
  end else
  if (turnleft == 1'b1) begin
@@ -241,17 +227,41 @@ reg [N-1:0] slow_clk = 0;
         2'b10: prevY = prevY + 2'd2;
    endcase
  end
- if (prevY == 5)
-  if ((prevX == 3*(currentApple+1)-1 && lastDirection == 2'b01) || (prevX == 3*(currentApple+1)+2 && lastDirection == 2'b11)) begin
+ if (lastY == 5)
+  if ((lastX == 3*(currentApple+1)-1 && prevX == 3*(currentApple+1)+2) || (prevX == 3*(currentApple+1)-1 && lastX == 3*(currentApple+1)+2)) begin
    applePicked = 1'b1;
    soundCode = 2'b10;
    tailPointer = tailPointer - 1;
+  end
+  
+ if (lastY == 4 && lastDirection == 2'b10)
+  if ((lastX == 3*(currentApple+1)+1 && prevX == 3*(currentApple+1)-1) || (lastX == 3*(currentApple+1) && prevX == 3*(currentApple+1)+2)) begin
+   applePicked = 1'b1;
+   soundCode = 2'b10;
+   tailPointer = tailPointer - 1;
+  end
+  
+// If an apple was picked - play sound with soundcode 1 and increase the length of the snake
+ if (applePicked == 1'b1) begin
+  for (i = 0; i<6; i = i+1)
+	appleDot[i] = 1'b1;
+  currentApple = (currentApple - 2) % 4;
+  appleDot[currentApple] = 1'b0;
+  applePicked = 1'b0;
+ end
+  soundCode = 1'b1;
+  speakerCall = ~speakerCall;
+  
+  if (field[prevY][prevX] == 1'b0) begin
+   gameOver = 1'b1;
+   soundCode = 0;
   end
   
     snakePos[headPointer][0] = prevY;
     snakePos[headPointer][1] = prevX;
     refresh = ~refresh;
   end
+  
  end
 
  always @ (btL)

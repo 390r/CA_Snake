@@ -1,5 +1,5 @@
 Flow report for snake
-Fri Apr 20 13:42:19 2018
+Fri Apr 27 00:35:45 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 20 13:42:19 2018       ;
+; Flow Status                        ; Successful - Fri Apr 27 00:35:45 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; snake                                       ;
 ; Top-level Entity Name              ; snake                                       ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 6,957 / 49,760 ( 14 % )                     ;
-;     Total combinational functions  ; 6,738 / 49,760 ( 14 % )                     ;
-;     Dedicated logic registers      ; 861 / 49,760 ( 2 % )                        ;
-; Total registers                    ; 861                                         ;
+; Total logic elements               ; 7,048 / 49,760 ( 14 % )                     ;
+;     Total combinational functions  ; 6,833 / 49,760 ( 14 % )                     ;
+;     Dedicated logic registers      ; 860 / 49,760 ( 2 % )                        ;
+; Total registers                    ; 860                                         ;
 ; Total pins                         ; 54 / 360 ( 15 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/20/2018 13:40:13 ;
+; Start date & time ; 04/27/2018 00:32:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; snake               ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 8796748159169.152422081212320          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 8796748159169.152477836402575          ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -95,12 +95,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:32     ; 1.0                     ; 977 MB              ; 00:00:38                           ;
-; Fitter                    ; 00:01:14     ; 1.2                     ; 1459 MB             ; 00:01:45                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 839 MB              ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:11     ; 1.6                     ; 912 MB              ; 00:00:16                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 1112 MB             ; 00:00:02                           ;
-; Total                     ; 00:02:02     ; --                      ; --                  ; 00:02:44                           ;
+; Analysis & Synthesis      ; 00:00:33     ; 1.0                     ; 976 MB              ; 00:00:37                           ;
+; Fitter                    ; 00:02:07     ; 1.1                     ; 1487 MB             ; 00:02:39                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 836 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:11     ; 1.6                     ; 914 MB              ; 00:00:17                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 1111 MB             ; 00:00:02                           ;
+; Total                     ; 00:02:56     ; --                      ; --                  ; 00:03:38                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
